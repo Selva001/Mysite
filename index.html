@@ -1,0 +1,1223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LNI Food Machinery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+    --primary:#7B3F00; /* --- very dark shade of red --*/
+    --secondary:#FFDCB8; /* --- Dutch White --*/
+    --dark:#FFC68A;  /* --- very dark shade of red --*/
+    --light:#FFDCB8; /* --- Floral White --*/
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+body{
+    background:var(--light);
+    color:BLACK;
+    line-height:1.6;
+    padding-top:80px;
+}
+
+/* ================= HEADER ================= */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:var(--primary);
+    color:WHITE;
+    padding:18px 140px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+}
+
+nav a{
+    color:WHITE;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* Right section */
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+/* ================= PAGES ================= */
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+/* ================= HERO ================= */
+.slider{
+    height:350px;
+    overflow:hidden;
+}
+
+.slider img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ================= SECTIONS ================= */
+.section{
+    padding:5px 50px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.section h2{
+    text-align:center;
+    font-size:36px;
+    color:var(--primary);
+    margin-bottom:30px;
+}
+
+/* ================= CARDS ================= */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:15px;
+}
+
+.card{
+
+    background:#FFF3E6;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 6px 315px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.card img{
+    height:100px;
+    margin-bottom:1px;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Lifts the card */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15); /* Adds depth */
+ background-color:#8AFF8A; /* light green */
+
+}
+
+/* ================= DROPDOWN ================= */
+.dropdown{ position:relative; }
+
+.dropdown-menu{
+    position:absolute;
+    top:40px;
+    left:0;
+    background:#fff;
+    min-width:230px;
+    border-radius:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:all .3s ease;
+    z-index:2000;
+}
+
+.dropdown-menu a{
+    display:block;
+    padding:5px 5px;
+    color:#333;
+    font-weight:normal;
+}
+
+.dropdown-menu a:hover{
+    background:var(--secondary);
+    color:var(--primary);
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:var(--dark);
+    color:#fff;
+    text-align:center;
+    padding:2px;
+}
+/* ================= WHATSAPP ================= */
+.whatsapp-btn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    border-radius:10%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 6px 15px rgba(0,0,0,0.3);
+}
+
+.whatsapp-btn img{width:32px;}
+
+/* ===== SLIDER SECTION ===== */
+.home-slider{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.slider-box{
+    position:relative;
+    width:1000px;
+    height:200px;
+    overflow:hidden;
+    border-radius:10px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Image */
+.slider-box img{
+    width:1000px;
+    height:200px;
+    object-fit:cover;
+    transition:opacity 0.8s ease;
+}
+
+/* Dots */
+.slider-dots{
+    position:absolute;
+    bottom:12px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:10px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#fff;
+    opacity:0.6;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.dot.active{
+    background:#5f230a;
+    opacity:1;
+}
+
+
+/* ===== CONTACT SECTION ===== */
+
+.contact-container{
+    display:flex;
+    gap:50px;
+    align-items:center;
+}
+
+.contact-form{
+    flex:1;
+    background:#fff;
+    padding:10px;
+    border-radius:10px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+
+.contact-form h2{
+    margin-bottom:3px;
+    color:#5f230a;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:80%;
+    padding:9px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:14px;
+}
+
+.contact-form button{
+    background:#5f230a;
+    color:#fff;
+    border:none;
+    padding:12px 25px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.contact-form button:hover{
+    background:Green;
+}
+
+.contact-image{
+    flex:1;
+    text-align:center;
+}
+
+.contact-image img{
+    width:120%;
+    max-width:100%;
+    border-radius:12px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width:768px){
+    .contact-container{
+        flex-direction:column;
+    }
+}
+
+
+/* Slider Product Level */
+/* ===== Slider Card ===== */
+.slider-card{
+    cursor:pointer;
+    text-align:center;
+}
+
+/* Slider */
+.image-slider{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.image-slider img{
+    width:100px;
+    height:auto;
+    transition:opacity 0.5s ease;
+}
+
+/* Arrows */
+.image-slider .arrow{
+    position:absolute;
+    top:65%;
+    transform:translateY(-50%);
+    width:0px;
+    height:0px;
+    background:rgba(0,0,0,0.6);
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    user-select:none;
+    font-size:16px;
+}
+
+.image-slider .left{
+    left:-3px;
+}
+
+.image-slider .right{
+    right:-4px;
+}
+
+.image-slider .arrow:hover{
+    background:#5f230a;
+}
+
+/* Button */
+.open-modal-btn{
+    padding:10px 18px;
+    background:Brown;
+    color:White;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* ===== MODAL OVERLAY ===== */
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+}
+
+/* ===== MODAL BOX ===== */
+.modal-box{
+    background:#fffaf0; /* Dutch White */
+    width:90%;
+    max-width:500px;
+    padding:25px;
+    border-radius:10px;
+    position:relative;
+    animation:modalFade 0.3s ease;
+}
+
+/* Close Button */
+.modal-close{
+    position:absolute;
+    top:10px;
+    right:14px;
+    font-size:24px;
+    cursor:pointer;
+    color:#333;
+}
+
+.modal-close:hover{
+    color:#b00000;
+}
+
+/* Modal Content */
+.modal-box h2{
+    margin-bottom:10px;
+    color:#5a3a2e;
+}
+
+.modal-box p{
+    font-size:15px;
+    line-height:1.6;
+    color:#555;
+}
+
+/* Animation */
+@keyframes modalFade{
+    from{
+        transform:scale(0.9);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* ===== HEADER SOCIAL ICONS ===== */
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:0px;
+}
+
+.social-icons{
+    display:flex;
+    gap:12px;
+    margin-left:20px;
+}
+
+.social-icons a{
+    width:34px;
+    height:34px;
+    background:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:0.3s ease;
+}
+
+.social-icons a img{
+    width:18px;
+    height:18px;
+}
+
+.social-icons a:hover{
+    transform:translateY(-2px);
+    background:#f2dcbb;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>LNI Automation</h2>
+        <nav>
+            <a onclick="showPage('home-page')">Home</a>
+            <a onclick="showPage('about-page')">About</a>
+
+            <div class="dropdown">
+                <a>Products ▾</a>
+                <div class="dropdown-menu">
+                    <a onclick="showPage('Depositing-page')">Depositing</a>
+                    <a onclick="showPage('Baking-page')">Baking</a>
+                    <a onclick="showPage('Dough-page')">Dough Processing</a>
+                    <a onclick="showPage('CC-page')">Cooling, Chilling</a>
+                    <a onclick="showPage('Proffing-page')">Proffing</a>
+                    <a onclick="showPage('Mixing-page')">Mixing</a>
+                    <a onclick="showPage('SP-page')">Slicing / Packing</a>
+                    <a onclick="showPage('Cleaning-page')">Cleaning</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a>Services ▾</a>
+                <div class="dropdown-menu">
+                    <a onclick="showPage('Plant Automation-page')">Plant Automation</a>
+                    <a onclick="showPage('Operation Planning-page')">Operation Planning</a>
+                    <a onclick="showPage('Training & Development-page')">Training & Development</a>
+                    <a onclick="showPage('New Plant Development-page')">New Plant Development</a>
+                    <a onclick="showPage('Quality Management Systems-page')">Quality Management Systems</a>
+                </div>
+            </div>
+
+            <a onclick="showPage('contact-page')">Contact us</a>
+        </nav>
+
+    </div>
+      
+</header>
+
+<center>
+<!-- ================= HOME START ================= -->
+
+<div id="home-page" class="page active">
+
+<!-- ===== HOME PAGE SLIDER ===== -->
+<section class="home-slider">
+    <div class="slider-box">
+        <img id="sliderImage" src="https://thumbs.dreamstime.com/b/fresh-loaves-bread-move-along-industrial-conveyor-belt-large-bakery-automated-machinery-					prepares-baked-goods-mass-407410239.jpg" alt="Home Slider">
+        <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+    </div>
+</section>
+
+<br>
+<!-- ================= Details ================= -->
+<section class="section">
+	<h3>End-to-end solutions for the food industry:</h3>
+LNI Automation is a full-service consultancy and equipment provider dedicated to the success of modern bakeries and food industry. We manage the entire lifecycle of your machinery from sourcing the finest international components to professional installation and operator training. We bridge the gap between world-class engineering and your local culinary vision.
+        </p>
+	
+</section>
+----------------------------------------------------        
+<!-- ================= HOME PRODUCTS ================= --> 
+<section class="section">
+        <h3>Our Products</h3><br>
+<div class="grid">
+
+<!-- Depositing -->
+	<div class="card">
+ 	<a onclick="showPage('Depositing-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+	<div class="image-slider" data-images="
+		https://5.imimg.com/data5/SELLER/Default/2024/9/451660239/HD/CS/OA/42533001/cookie-dropping-machine-500x500.jpg,
+		https://5.imimg.com/data5/SELLER/Default/2024/11/466459637/GH/BZ/KG/6056272/images-2024-11-19t113829-413-copy.jpg"
+		style="width:320px; height:100px; object-fit:cover;">
+	
+	<span class="arrow left"></span>	
+	<img src="https://5.imimg.com/data5/SELLER/Default/2024/9/451660239/HD/CS/OA/42533001/cookie-dropping-machine-500x500.jpg">
+	<span class="arrow right"></span> 
+
+	</div>    
+	<h4>Depositing</h4>
+    	</a>
+	</div>
+
+<!-- Baking -->
+	<div class="card">
+ 	<a onclick="showPage('Baking-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+	<div class="image-slider" data-images="
+		https://5.imimg.com/data5/SELLER/Default/2025/3/499607308/YK/ML/KE/13069892/rotary-oven-120-trays-1000x1000.jpg,
+		https://5.imimg.com/data5/SELLER/Default/2025/6/521199496/CL/VK/IY/102174084/commercial-bakery-oven-1000x1000.webp" alt="Baking" 
+		style="width:320px; height:100px; object-fit:cover;">	
+	<span class="arrow left"></span>
+	<img src="https://static.wixstatic.com/media/d14fdd_625377a97e934648a22196712be7ef7c~mv2.jpg/v1/fill/w_291,h_291,q_90,enc_avif,quality_auto/d14fdd_625377a97e934648a22196712be7ef7c~mv2.jpg" alt="Baking">
+	<span class="arrow right"></span>    
+	</div>    
+	<h4>Baking</h4>
+    	</a>
+	</div>
+
+<!-- Dough -->
+	<div class="card">
+ 	<a onclick="showPage('Dough-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+	<div class="image-slider" data-images="
+		https://4.imimg.com/data4/JO/QD/MY-26185899/sinmag-sheeter-1000x1000.jpg,
+		https://5.imimg.com/data5/VL/PK/MY-2099982/dough-divider-1000x1000.jpg,
+		https://5.imimg.com/data5/SELLER/Default/2021/3/KJ/YD/EF/26185899/smd-4p-6-continuous-divider-250x250.jpg" alt="Dough" 
+		style="width:320px; height:100px; object-fit:cover;">
+	<span class="arrow left"></span>
+	<img src="https://4.imimg.com/data4/JO/QD/MY-26185899/sinmag-sheeter-1000x1000.jpg" alt="Dough">
+	<span class="arrow right"></span>    
+	</div>    
+	<h4>Dough</h4>
+    	</a>
+	</div>
+
+<!-- CC -->
+	<div class="card">
+ 	<a onclick="showPage('CC-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+	<div class="image-slider" data-images="
+		https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhl1-Oz1_NgtMQxa1fLiceR6FxXI-uaeDb0A&s,
+		https://s.alicdn.com/@sc04/kf/Heeb6a604600046929bab4cb1f2db24f1p/Cooking-Preservation-Bakery-Vacuum-Cooler-Pre-Chiller-Foods-Machine-Food-Cooling-for-Noodles.jpg,
+		https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSed7Z3BotC77_3_hOwpzCPSHVX4nB-x5-jMA&s" alt="CC" 
+		style="width:320px; height:100px; object-fit:cover;">
+	<span class="arrow left"></span>
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhl1-Oz1_NgtMQxa1fLiceR6FxXI-uaeDb0A&s" alt="CC">
+	<span class="arrow right"></span>    
+	</div>    
+	<h4>Cooling, Chilling</h4>
+    	</a>
+	</div>
+
+<!-- Proofing -->
+	<div class="card">
+ 	<a onclick="showPage('Proofing-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+	<div class="image-slider" data-images="
+		https://5.imimg.com/data5/SELLER/Default/2022/11/XR/ON/CP/3709012/bread-proofer-machine-1000x1000.png,
+		http://5.imimg.com/data5/SELLER/Default/2021/3/YJ/CY/ZV/51711716/32-tray-proofer-machine-500x500.jpg,
+		http://5.imimg.com/data5/ANDROID/Default/2024/5/417664573/JK/GB/PZ/2705010/product-jpeg-500x500.jpg" alt="Proofing" 
+		style="width:320px; height:100px; object-fit:cover;">
+	<span class="arrow left"></span>
+	<img src="https://5.imimg.com/data5/SELLER/Default/2022/11/XR/ON/CP/3709012/bread-proofer-machine-1000x1000.png" alt="Proofing">
+	<span class="arrow right"></span>    
+	</div>    
+	<h4>Proofing</h4>
+    	</a>
+	</div>
+
+<!-- Mixing -->
+	<div class="card">
+ 	<a onclick="showPage('Mixing-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+	<div class="image-slider" data-images="
+		https://5.imimg.com/data5/KN/YY/MY-2250436/sancassiano-3a-just-mix-it-1000x1000.jpg,
+		https://3.imimg.com/data3/KW/HB/MY-2088493/mixer-with-beater-arms-serie-500x500.jpg,
+		https://5.imimg.com/data5/SELLER/Default/2025/12/564705206/LB/YY/NE/2997577/sinmag-planetary-mixer-sm-80l-1000x1000.jpg" alt="Mixing" 
+		style="width:320px; height:100px; object-fit:cover;">
+	<span class="arrow left"></span>
+	<img src="https://5.imimg.com/data5/KN/YY/MY-2250436/sancassiano-3a-just-mix-it-1000x1000.jpg" alt="Mixing">
+	<span class="arrow right"></span>    
+	</div>    
+	<h4>Mixing</h4>
+    	</a>
+	</div>
+<!-- SP -->
+	<div class="card">
+ 	<a onclick="showPage('SP-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+	<div class="image-slider" data-images="
+		http://5.imimg.com/data5/SELLER/Default/2024/6/425609311/MY/PV/IA/42487772/breading-slicer-machine-1000x1000.jpg,
+		http://5.imimg.com/data5/SELLER/Default/2023/3/291921264/VN/EO/OM/2715705/reva-heavy-duty-bread-slicer-machine-1000x1000.png,
+		https://www.provisur.com/webfoo/wp-content/uploads/2020-01/provisur-formax-sx330-slicer-568x500.png" alt="Slicing / Packing" 
+	style="width:320px; height:100px; object-fit:cover;">
+	<span class="arrow left"></span>
+	<img src="http://5.imimg.com/data5/SELLER/Default/2024/6/425609311/MY/PV/IA/42487772/breading-slicer-machine-1000x1000.jpg" alt="Slicing / Packing">
+	<span class="arrow right"></span>    
+	</div>    
+	<h4>Slicing / Packing</h4>
+    	</a>
+	</div>
+
+<!-- Cleaning -->
+	<div class="card">
+ 	<a onclick="showPage('Cleaning-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+	<div class="image-slider" data-images="
+		https://cpimg.tistatic.com/06595399/b/4/Crate-Washer-Basket-Tray-Washing-Machine.jpg,
+		https://5.imimg.com/data5/SELLER/Default/2024/4/409920065/BG/PG/IZ/3651265/plastic-bin-washing-machine-500x500.jpg,
+		https://www.superiorfoodmachinery.com/images/tray-washer-mpp-150-p944-4961_zoom.jpg" alt="Cleaning" 
+	style="width:320px; height:100px; object-fit:cover;">
+	<span class="arrow left"></span>
+	<img src="https://cpimg.tistatic.com/06595399/b/4/Crate-Washer-Basket-Tray-Washing-Machine.jpg" alt="Cleaning">
+	<span class="arrow right"></span>    
+	</div>    
+	<h4>Cleaning</h4>
+    	</a>
+	</div>
+</div>
+</section>
+<br>
+
+----------------------------------------------------
+<!-- ================= HOME Equipment to Produce ================= -->
+<section class="section">
+        <h3>Equipment to Produce</h3> <br>
+<div class="grid">
+
+	<div class="card">
+	<img src="https://creativeculinaire.com/wp-content/uploads/2021/06/CDP-1-scaled.jpg" alt="Cleaning" style="width: 100px;">
+	<img src="https://veenaazmanov.com/wp-content/uploads/2020/06/Danish-Pastry-Cream-Cheese-Cylinders6-1.jpg" alt="Cleaning" style="width: 100px;">
+	<img src="https://static.vecteezy.com/system/resources/previews/020/828/766/non_2x/butter-croissant-with-sourdough-and-danish-pastry-on-white-wood-background-photo.jpg" alt="Cleaning" style="width: 100px;">
+<h4>CROISSANTS/DANISH</h4>
+    	</a>
+	</div>
+
+	<div class="card">
+<img src="https://www.cookingwithmykids.co.uk/wp-content/uploads/2024/02/soft-bread-rolls-30.jpg" alt="Cleaning" style="width: 100px;">
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbdfnHr45qYWUsSK7AR1KqnYfeUASQasyOCg&s" alt="Cleaning" style="width: 100px;">
+	<img src="https://www.shutterstock.com/image-photo/stacked-loaf-sliced-bread-hd-600nw-2652608005.jpg" alt="Cleaning" style="width: 100px;">
+
+        <h4>BREAD ROLLS/LOAVES</h4>
+    	</a>
+	</div>
+
+	<div class="card">
+<img src="https://etimg.etb2bimg.com/photo/106076445.cms" alt="Cleaning" style="width: 100px;">
+	<img src="https://content.jdmagicbox.com/comp/ernakulam/m6/0484px484.x484.161020141423.x9m6/catalogue/indian-bakery-vazhakulam-ernakulam-cake-shops-2fd0r5ym58.jpg" alt="Cleaning" style="width: 100px;">
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDULV1m5qgYaTSKz83onX1c672sTkART0Kag&s" alt="Cleaning" style="width: 100px;">
+
+        <h4>CAKES</h4>
+    	</a>
+	</div>
+</div>
+</section>
+<br>
+
+----------------------------------------------------
+<!-- ================= HOME CONTACT FORM ================= -->
+<section class="section contact-section" id="contact">
+    <div class="contact-container">
+
+        <!-- LEFT: CONTACT FORM -->
+        <div class="contact-form">
+            <h3>Contact Us</h3>
+
+            <form id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="mobile" placeholder="Your Mobile" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- RIGHT: IMAGE -->
+        <div class="contact-image">
+ <img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg">
+
+	 </div>
+
+    </div>
+</section>
+
+
+</div>
+</center>
+
+<!-- ================= ABOUT ================= -->
+<div id="about-page" class="page">
+<section class="section">
+        <h2>About Us</h2>
+<p style="text-align:center;margin:auto;">
+<p>LNI Automation is a full-service consultancy and equipment provider dedicated to the success of modern bakeries. We manage the entire lifecycle of your machinery from sourcing the finest international components to professional installation and operator training. We bridge the gap between world-class engineering and your local culinary vision.
+</p>
+<br>
+<h3>Our Mission:</h3>
+<p> To assist bakers around the world in successfully expanding their business by providing innovative, technically-based solutions that increase sales and improve quality. </p>
+
+<h3>Our Vision:</h3>
+<p> To be the first choice for small, medium, and large bakeries by fostering a future where advanced technology makes artisanal quality accessible at any scale.</p>
+<br>
+<h4>Chef Profile:</h4>
+
+<p>
+Chef Gandhi M, our Head Chef, brings 18+ years of experience in professional bakery and food processing. With expertise in industrial and artisanal baking, recipe standardization, and food safety, Chef Gandhi M ensures consistent quality, great taste,and the highestone hygiene standards across all our products.
+</p>
+<br>
+Email: ✉ your.email@gmail.com <br>
+Mobile: ✆ +1 (234) 567-890
+
+<br><br><br>
+
+</p>
+</section>
+</div>
+
+
+<!-- ================= Start Depositing to list of item PAGE ================= -->
+<div id="Depositing-page" class="page">
+<section class="section">
+<h3>Equipment for Depositing</h3><br>
+<div class="grid">
+
+<!-- Overlay -->
+<div class="modal-overlay" id="productModal">
+    <div class="modal-box">
+        <span class="modal-close" onclick="closeModal()">×</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalContent"></p>
+    </div>
+</div>
+
+<!-- DEPOSITOR 1 -->
+<div class="card">
+    <img src="F:\3.New Project\Final Version\Sub Photos\Depositer 1_1.png" alt="Depositor 1">
+    <h4>DEPOSITOR 1</h4>
+    <button class="open-modal-btn" onclick="openModal('dep1')">Know more</button>
+</div>
+
+<!-- DEPOSITOR 2 -->
+<div class="card">
+    <img src="F:\3.New Project\Final Version\Sub Photos\Depositer 2.png" alt="Depositor 2">
+    <h4>DEPOSITOR 2</h4>
+    <button class="open-modal-btn" onclick="openModal('dep2')">Know more</button>
+</div>
+
+<!-- DEPOSITOR 3 -->
+<div class="card">
+    <img src="F:\3.New Project\Final Version\Sub Photos\donut freeyer.png" alt="Depositor 3">
+    <h4>DEPOSITOR 3</h4>
+    <button class="open-modal-btn" onclick="openModal('dep3')">Know more</button>
+</div>
+
+<!-- DEPOSITOR 4 -->
+<div class="card">
+    <img src="F:\3.New Project\Final Version\Sub Photos\Dough Freeyer 2 auto.png" alt="Depositor 4">
+    <h4>DEPOSITOR 4</h4>
+    <button class="open-modal-btn" onclick="openModal('dep4')">Know more</button>
+</div>
+
+<!-- DEPOSITOR 5 -->
+<div class="card">
+    <img src="F:\3.New Project\Final Version\Sub Photos\pro bread plant.png" alt="Depositor 5">
+    <h4>DEPOSITOR 5</h4>
+    <button class="open-modal-btn" onclick="openModal('dep5')">Know more</button>
+</div>
+
+<!-- DEPOSITOR 6 -->
+<div class="card">
+    <img src="F:\3.New Project\Final Version\Sub Photos\pro bread plant1.png" alt="Depositor 6">
+    <h4>DEPOSITOR 6</h4>
+    <button class="open-modal-btn" onclick="openModal('dep6')">Know more</button>
+</div>
+
+
+</div>
+</section>
+</div>
+
+<!-- ================= BAKING PAGE ================= -->
+<div id="Baking-page" class="page">
+<section class="section">
+        <h2>Baking</h2>
+<div class="grid">
+            	<div class="card">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/OM/MU/TV/11063257/r-800-rotary-rack-oven-250x250.jpg">
+                <h3>ROTARY OVENS</h3>
+                <p>16–32 trays • Gas/Diesel • Uniform baking</p>
+            	</div>
+            	<div class="card">
+                <h3>Deck Oven</h3>
+                <p>Stone base • Artisan bread • Multi-deck</p>
+        	</div>
+            	<div class="card">
+                <h3>REEL OVEN</h3>
+                <p>Stone base • Artisan bread • Multi-deck</p>
+        	</div>
+</div>
+</section>
+</div>
+
+<!-- ================= Dough PAGE ================= -->
+<div id="Dough-page" class="page">
+<section class="section">
+        <h2>Baking</h2>
+<div class="grid">
+            	
+Add Dough Images
+
+</div>
+</section>
+</div>
+
+<!-- ================= CC PAGE ================= -->
+<div id="CC-page" class="page">
+<section class="section">
+        <h2>Baking</h2>
+<div class="grid">
+            	
+Add CC Images
+
+</div>
+</section>
+</div>
+
+<!-- ================= Proffing PAGE ================= -->
+<div id="Proffing-page" class="page">
+<section class="section">
+        <h2>Baking</h2>
+<div class="grid">
+            	
+Add Proffing Images
+
+</div>
+</section>
+</div>
+
+<!-- ================= Mixing PAGE ================= -->
+<div id="Mixing-page" class="page">
+<section class="section">
+        <h2>Baking</h2>
+<div class="grid">
+            	
+Add Mixing Images
+
+</div>
+</section>
+</div>
+
+<!-- ================= SERVICES Plant Automation ================= -->
+
+<div id="Plant Automation-page" class="page">
+    <section class="section">
+        <h3>Plant Automation</h3><br>
+        <div class="contact-container">
+            <div class="card">
+<p>LNI Productions is a leader in delivering advanced food processing and bakery automation solutions that seamlessly integrate cutting-edge technology into modern production environments. We provide end-to-end automation services, from targeted process improvements to fully automated production lines, designed to enhance efficiency and scalability.<br> <br>
+By leveraging robotics, IoT-enabled monitoring, and intelligent control systems, we help food manufacturers achieve consistent product quality, higher yields, and optimized operational performance.<br><br> 
+Our solutions significantly reduce manual dependency while improving food safety and process reliability, enabling businesses to stay competitive in an increasingly demanding and fast-paced food industry.
+</p></div>
+
+        </div>
+    </section>
+</div>
+
+
+<!-- ================= SERVICES Operation Planning ================= -->
+
+<div id="Operation Planning-page" class="page">
+    <section class="section">
+        <h3>Operation Planning</h3><br>
+        <div class="contact-container">
+            <div class="card">
+<p>Efficient operation planning is essential for meeting production goals while maintaining quality and minimizing costs. At Autobake Productions, our operation planning experts collaborate closely with your team to design actionable strategies.</p>
+<br>
+<p>From raw material sourcing to finished product delivery, we ensure that each step of your bakery's operation is optimized. Our holistic approach encompasses demand forecasting and inventory management while streamlining logistics so that you navigate challenges confidently.
+</p></div>
+
+        </div>
+    </section>
+</div>
+
+<!-- ================= SERVICES Training & Development ================= -->
+
+<div id="Training & Development-page" class="page">
+    <section class="section">
+        <h3>Training & Development</h3><br>
+        <div class="contact-container">
+            <div class="card">
+<p>The success of any bakery relies on a skilled workforce. Autobake Productions offers comprehensive training and development programs tailored to the bakery industry. Our experienced trainers cover every baking-related topic, from operational best practices to safety and hygiene protocols.</p>
+<br>
+<p>These hands-on workshops and customized training modules empower staff to operate equipment efficiently, maintain high-quality standards, and swiftly adapt to evolving technology and trends.
+</p></div>
+
+        </div>
+    </section>
+</div>
+
+<!-- ================= SERVICES New Plant Development ================= -->
+
+<div id="New Plant Development-page" class="page">
+
+<section class="section contact-section" id="contact">
+<h3>New Plant Development:</h3>
+    <div class="contact-container">
+The initial setup of high-quality production standards and day-to-day <br> 
+operations is often easy! However, maintaining those high standards of consistent <br> 
+product quality over long periods is much more challenging. <br>
+Autobake Productions implements robust Quality Management Systems (QMS) <br>
+that ensure manufactured products exceed customer expectations.<br>
+Our QMS experts help you develop and implement quality control processes, <br>
+quality assurance protocols, and traceability systems. <br>
+This results in improved product consistency, compliance with regulatory standards, <br>
+and enhanced customer satisfaction.
+<br><br>
+        <!-- RIGHT: IMAGE -->
+        <div class="contact-image">
+ <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2_kBqD9kCt7C757DHhxE5WLnOZs1xnH6E2A&s">
+
+	 </div>
+
+
+</section>
+
+</div>
+
+<!-- ================= SERVICES Quality Management Systems ================= -->
+
+<div id="Quality Management Systems-page" class="page">
+
+<section class="section contact-section" id="contact">
+<h3>Quality Management Systems</h3>
+    <div class="contact-container">
+The initial setup of high-quality production standards and day-to-day <br> 
+operations is often easy! However, maintaining those high standards of consistent <br> 
+product quality over long periods is much more challenging. <br>
+Autobake Productions implements robust Quality Management Systems (QMS) <br>
+that ensure manufactured products exceed customer expectations.<br>
+Our QMS experts help you develop and implement quality control processes, <br>
+quality assurance protocols, and traceability systems. <br>
+This results in improved product consistency, compliance with regulatory standards, <br>
+and enhanced customer satisfaction.
+<br><br>
+        <!-- RIGHT: IMAGE -->
+        <div class="contact-image">
+ <img src="https://www.ficsi.in/blog/wp-content/uploads/2022/09/July-blog-3.jpg">
+	 </div>
+
+</section>
+
+</div>
+
+<!-- ================= HOME CONTACT FORM ================= -->
+<div id="contact-page" class="page">
+
+<section class="section contact-section" id="contact">
+    <div class="contact-container">
+
+        <!-- LEFT: CONTACT FORM -->
+        <div class="contact-form">
+            <h3>Contact Us</h3>
+
+            <form id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="mobile" placeholder="Your Mobile" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- RIGHT: IMAGE -->
+        <div class="contact-image">
+ <img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg">
+
+	 </div>
+
+
+</section>
+<br><br>
+</div>
+<footer>
+@2026 LNI FOOD AUTOMATION. 
+  <!-- SOCIAL ICONS -->
+        <div class="social-icons">
+            <a href="https://www.instagram.com/" target="_blank" title="Instagram">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank" title="Facebook">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+            </a>
+
+            <a href="https://www.linkedin.com/" target="_blank" title="LinkedIn">
+                <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn">
+            </a>
+        </div>
+
+</footer>
+
+<a class="whatsapp-btn"
+   href="https://wa.me/919597632923"
+   target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+</a>
+
+	
+<script>
+
+function showPage(pageId)
+{
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+
+/* ===== HOME PAGE MOVE SLIDER SCRIPT ===== */
+const images = 
+[ 	"https://thumbs.dreamstime.com/b/highspeed-automated-production-line-bread-toast-bun-packaging-efficient-flow-wrapper-machinery-commercial-streamline-your-363178583.jpg",
+    	"https://solutions-de-melange.com/wp-content/uploads/2023/02/Automated-mixing-systems_carrousel_forkmixers_closeup_bowls_XS-edited.jpg",
+"https://img.yfisher.com/m6077/1725814037ivr/jpg100-t3-scale100.webp"
+];
+
+let currentIndex = 0;
+const sliderImg = document.getElementById("sliderImage");
+const dots = document.querySelectorAll(".dot");
+
+function updateSlide(index){
+    sliderImg.style.opacity = 0;
+
+    setTimeout(() => {
+        currentIndex = index;
+        sliderImg.src = images[currentIndex];
+
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[currentIndex].classList.add("active");
+
+        sliderImg.style.opacity = 1;
+    }, 400);
+}
+
+function goToSlide(index){
+    updateSlide(index);
+}
+
+/* Auto slide */
+setInterval(() => {
+    let next = (currentIndex + 1) % images.length;
+    updateSlide(next);
+}, 3000);
+
+
+/* ===== GLOBAL IMAGE SLIDER ===== */
+document.querySelectorAll(".image-slider").forEach(slider => {
+
+    const img = slider.querySelector("img");
+    const images = slider.dataset.images.split(",");
+    let index = 0;
+
+    function updateImage(newIndex){
+        img.style.opacity = 0;
+
+        setTimeout(() => {
+            index = newIndex;
+            img.src = images[index];
+            img.style.opacity = 1;
+        }, 250);
+    }
+
+    /* Arrows */
+    slider.querySelector(".left").addEventListener("click", e => {
+        e.stopPropagation();
+        updateImage((index - 1 + images.length) % images.length);
+    });
+
+    slider.querySelector(".right").addEventListener("click", e => {
+        e.stopPropagation();
+        updateImage((index + 1) % images.length);
+    });
+
+    /* Auto Slide */
+    setInterval(() => {
+        updateImage((index + 1) % images.length);
+    }, 3000);
+});
+
+<!-- Pop up -->
+const productData = 
+{
+    dep1: {
+        title: "DEPOSITOR 1",
+        content: `
+            Optimize your bakery production with a versatile depositing system designed for high-speed, precision dosing of batter and dough, perfect for producing biscuits, macarons, muffins, and sponge cakes while maintaining consistency across batches.
+            <br><br>
+            ✔ Enhances production efficiency with high-speed, precise depositing and dosing.<br>
+            ✔ Simplifies recipe management through a user-friendly touch screen interface with memory for 200 recipes.<br>
+            ✔ Minimizes cleaning time with easily detachable food-contact components.<br>
+            ✔ Accommodates diverse product shapes and sizes with customizable moulds and nozzles.
+        `
+   	 },
+    dep2: 
+	{
+        title: "DEPOSITOR 2",
+        content: `
+            Industrial multi-nozzle depositor for high-speed
+            bakery production.
+            <br><br>
+            ✔ PLC touch-screen control<br>
+            ✔ Suitable for filled and layered products<br>
+            ✔ High output with consistent accuracy   `
+    },
+    dep3: 
+	{
+        title: "DEPOSITOR 3",
+        content: `
+            Test
+            <br><br>
+            ✔ PLC touch-screen control<br>
+            ✔ Suitable for filled and layered products<br>
+            ✔ High output with consistent accuracy   `
+    },
+dep4: 
+	{
+        title: "DEPOSITOR 4",
+        content: `
+            Test 4
+            <br><br>
+            ✔ PLC touch-screen control<br>
+            ✔ Suitable for filled and layered products<br>
+            ✔ High output with consistent accuracy   `
+    },
+dep5: 
+	{
+        title: "DEPOSITOR 5",
+        content: `
+            Test 5
+            <br><br>
+            ✔ PLC touch-screen control<br>
+            ✔ Suitable for filled and layered products<br>
+            ✔ High output with consistent accuracy   `
+    },
+dep6: 
+	{
+        title: "DEPOSITOR 6",
+        content: `
+            Test 6
+            <br><br>
+            ✔ PLC touch-screen control<br>
+            ✔ Suitable for filled and layered products<br>
+            ✔ High output with consistent accuracy   `
+    }
+
+
+
+};
+
+function openModal(key) {
+    document.getElementById("modalTitle").innerHTML = productData[key].title;
+    document.getElementById("modalContent").innerHTML = productData[key].content;
+    document.getElementById("productModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("productModal").style.display = "none";
+}
+
+/* Click outside modal */
+document.getElementById("productModal").addEventListener("click", e => {
+    if (e.target.id === "productModal") closeModal();
+});
+
+/* ESC close */
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeModal();
+});
+
+</script>
+
+</body>
+</html>
