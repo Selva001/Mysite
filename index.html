@@ -23,7 +23,7 @@
 
 body{
     background:var(--light);
-    color:BLACK;
+    color:Black;
     line-height:1.6;
     padding-top:80px;
 }
@@ -35,7 +35,7 @@ header{
     width:100%;
     background:var(--primary);
     color:WHITE;
-    padding:18px 140px;
+    padding:18px 16px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -71,24 +71,12 @@ nav a{
 .page.active{
     display:block;
 }
-
-/* ================= HERO ================= */
-.slider{
-    height:350px;
-    overflow:hidden;
-}
-
-.slider img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
 /* ================= SECTIONS ================= */
 .section{
     padding:5px 50px;
     max-width:1100px;
     margin:auto;
+text-align:center;
 }
 
 .section h2{
@@ -106,7 +94,6 @@ nav a{
 }
 
 .card{
-
     background:#FFF3E6;
     padding:15px;
     border-radius:10px;
@@ -196,8 +183,8 @@ footer{
 
 .slider-box{
     position:relative;
-    width:1000px;
-    height:200px;
+    width:100%;
+    max-width:1000px;
     overflow:hidden;
     border-radius:10px;
     box-shadow:0 6px 15px rgba(0,0,0,0.15);
@@ -205,7 +192,7 @@ footer{
 
 /* Image */
 .slider-box img{
-    width:1000px;
+    width:100%;
     height:200px;
     object-fit:cover;
     transition:opacity 0.8s ease;
@@ -302,10 +289,24 @@ footer{
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .menu-btn 
-{
-    display: flex;
+@media (max-width:768px){
+  nav{
+    position:absolute;
+    top:80px;
+    left:0;
+    width:100%;
+    background:#7B3F00;
+    flex-direction:column;
+    display:none;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  nav a{
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,0.2);
   }
 }
 
@@ -327,7 +328,7 @@ footer{
 }
 
 .image-slider img{
-    width:100px;
+    width:100%;
     height:auto;
     transition:opacity 0.5s ease;
 }
@@ -387,7 +388,7 @@ footer{
 /* ===== MODAL BOX ===== */
 .modal-box{
     background:#fffaf0; /* Dutch White */
-    width:90%;
+    width:100%;
     max-width:500px;
     padding:25px;
     border-radius:10px;
@@ -549,8 +550,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
  	<a onclick="showPage('Depositing-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
 		https://5.imimg.com/data5/SELLER/Default/2024/9/451660239/HD/CS/OA/42533001/cookie-dropping-machine-500x500.jpg,
-		https://5.imimg.com/data5/SELLER/Default/2024/11/466459637/GH/BZ/KG/6056272/images-2024-11-19t113829-413-copy.jpg"
-		style="width:320px; height:100px; object-fit:cover;">
+		https://5.imimg.com/data5/SELLER/Default/2024/11/466459637/GH/BZ/KG/6056272/images-2024-11-19t113829-413-copy.jpg">
 	
 	<span class="arrow left"></span>	
 	<img src="https://5.imimg.com/data5/SELLER/Default/2024/9/451660239/HD/CS/OA/42533001/cookie-dropping-machine-500x500.jpg">
@@ -566,8 +566,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
  	<a onclick="showPage('Baking-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
 		https://5.imimg.com/data5/SELLER/Default/2025/3/499607308/YK/ML/KE/13069892/rotary-oven-120-trays-1000x1000.jpg,
-		https://5.imimg.com/data5/SELLER/Default/2025/6/521199496/CL/VK/IY/102174084/commercial-bakery-oven-1000x1000.webp" alt="Baking" 
-		style="width:320px; height:100px; object-fit:cover;">	
+		https://5.imimg.com/data5/SELLER/Default/2025/6/521199496/CL/VK/IY/102174084/commercial-bakery-oven-1000x1000.webp">	
 	<span class="arrow left"></span>
 	<img src="https://static.wixstatic.com/media/d14fdd_625377a97e934648a22196712be7ef7c~mv2.jpg/v1/fill/w_291,h_291,q_90,enc_avif,quality_auto/d14fdd_625377a97e934648a22196712be7ef7c~mv2.jpg" alt="Baking">
 	<span class="arrow right"></span>    
@@ -582,8 +581,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<div class="image-slider" data-images="
 		https://4.imimg.com/data4/JO/QD/MY-26185899/sinmag-sheeter-1000x1000.jpg,
 		https://5.imimg.com/data5/VL/PK/MY-2099982/dough-divider-1000x1000.jpg,
-		https://5.imimg.com/data5/SELLER/Default/2021/3/KJ/YD/EF/26185899/smd-4p-6-continuous-divider-250x250.jpg" alt="Dough" 
-		style="width:320px; height:100px; object-fit:cover;">
+		https://5.imimg.com/data5/SELLER/Default/2021/3/KJ/YD/EF/26185899/smd-4p-6-continuous-divider-250x250.jpg">
 	<span class="arrow left"></span>
 	<img src="https://4.imimg.com/data4/JO/QD/MY-26185899/sinmag-sheeter-1000x1000.jpg" alt="Dough">
 	<span class="arrow right"></span>    
@@ -598,8 +596,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<div class="image-slider" data-images="
 		https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhl1-Oz1_NgtMQxa1fLiceR6FxXI-uaeDb0A&s,
 		https://s.alicdn.com/@sc04/kf/Heeb6a604600046929bab4cb1f2db24f1p/Cooking-Preservation-Bakery-Vacuum-Cooler-Pre-Chiller-Foods-Machine-Food-Cooling-for-Noodles.jpg,
-		https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSed7Z3BotC77_3_hOwpzCPSHVX4nB-x5-jMA&s" alt="CC" 
-		style="width:320px; height:100px; object-fit:cover;">
+		https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSed7Z3BotC77_3_hOwpzCPSHVX4nB-x5-jMA&s">
 	<span class="arrow left"></span>
 	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhl1-Oz1_NgtMQxa1fLiceR6FxXI-uaeDb0A&s" alt="CC">
 	<span class="arrow right"></span>    
@@ -614,8 +611,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<div class="image-slider" data-images="
 		https://5.imimg.com/data5/SELLER/Default/2022/11/XR/ON/CP/3709012/bread-proofer-machine-1000x1000.png,
 		http://5.imimg.com/data5/SELLER/Default/2021/3/YJ/CY/ZV/51711716/32-tray-proofer-machine-500x500.jpg,
-		http://5.imimg.com/data5/ANDROID/Default/2024/5/417664573/JK/GB/PZ/2705010/product-jpeg-500x500.jpg" alt="Proofing" 
-		style="width:320px; height:100px; object-fit:cover;">
+		http://5.imimg.com/data5/ANDROID/Default/2024/5/417664573/JK/GB/PZ/2705010/product-jpeg-500x500.jpg">
 	<span class="arrow left"></span>
 	<img src="https://5.imimg.com/data5/SELLER/Default/2022/11/XR/ON/CP/3709012/bread-proofer-machine-1000x1000.png" alt="Proofing">
 	<span class="arrow right"></span>    
@@ -630,8 +626,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<div class="image-slider" data-images="
 		https://5.imimg.com/data5/KN/YY/MY-2250436/sancassiano-3a-just-mix-it-1000x1000.jpg,
 		https://3.imimg.com/data3/KW/HB/MY-2088493/mixer-with-beater-arms-serie-500x500.jpg,
-		https://5.imimg.com/data5/SELLER/Default/2025/12/564705206/LB/YY/NE/2997577/sinmag-planetary-mixer-sm-80l-1000x1000.jpg" alt="Mixing" 
-		style="width:320px; height:100px; object-fit:cover;">
+		https://5.imimg.com/data5/SELLER/Default/2025/12/564705206/LB/YY/NE/2997577/sinmag-planetary-mixer-sm-80l-1000x1000.jpg">
 	<span class="arrow left"></span>
 	<img src="https://5.imimg.com/data5/KN/YY/MY-2250436/sancassiano-3a-just-mix-it-1000x1000.jpg" alt="Mixing">
 	<span class="arrow right"></span>    
@@ -645,8 +640,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<div class="image-slider" data-images="
 		http://5.imimg.com/data5/SELLER/Default/2024/6/425609311/MY/PV/IA/42487772/breading-slicer-machine-1000x1000.jpg,
 		http://5.imimg.com/data5/SELLER/Default/2023/3/291921264/VN/EO/OM/2715705/reva-heavy-duty-bread-slicer-machine-1000x1000.png,
-		https://www.provisur.com/webfoo/wp-content/uploads/2020-01/provisur-formax-sx330-slicer-568x500.png" alt="Slicing / Packing" 
-	style="width:320px; height:100px; object-fit:cover;">
+		https://www.provisur.com/webfoo/wp-content/uploads/2020-01/provisur-formax-sx330-slicer-568x500.png">
 	<span class="arrow left"></span>
 	<img src="http://5.imimg.com/data5/SELLER/Default/2024/6/425609311/MY/PV/IA/42487772/breading-slicer-machine-1000x1000.jpg" alt="Slicing / Packing">
 	<span class="arrow right"></span>    
@@ -661,8 +655,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<div class="image-slider" data-images="
 		https://cpimg.tistatic.com/06595399/b/4/Crate-Washer-Basket-Tray-Washing-Machine.jpg,
 		https://5.imimg.com/data5/SELLER/Default/2024/4/409920065/BG/PG/IZ/3651265/plastic-bin-washing-machine-500x500.jpg,
-		https://www.superiorfoodmachinery.com/images/tray-washer-mpp-150-p944-4961_zoom.jpg" alt="Cleaning" 
-	style="width:320px; height:100px; object-fit:cover;">
+		https://www.superiorfoodmachinery.com/images/tray-washer-mpp-150-p944-4961_zoom.jpg">
 	<span class="arrow left"></span>
 	<img src="https://cpimg.tistatic.com/06595399/b/4/Crate-Washer-Basket-Tray-Washing-Machine.jpg" alt="Cleaning">
 	<span class="arrow right"></span>    
