@@ -458,12 +458,17 @@ footer{
 
   /* Hamburger button */
   .menu-btn {
-    display: block;
+    display: Green;
     font-size: 26px;
     background: none;
     border: none;
     cursor: pointer;
   }
+
+/* Desktop */
+nav {
+  display: flex;
+}
 
   /* Navigation */
   nav {
@@ -1268,9 +1273,35 @@ document.addEventListener("keydown", e => {
 
 
 /* Toggleview */
+
+const nav = document.querySelector("nav");
+const menuBtn = document.querySelector(".menu-btn");
+
+/* Toggle on button click */
 function toggleMenu() {
-  document.querySelector("nav").classList.toggle("show");
+  nav.classList.toggle("show");
 }
+
+/* Auto close when clicking a link */
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("show");
+  });
+});
+
+/* Auto close when resizing screen */
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) {
+    nav.classList.remove("show");
+  }
+});
+
+/* Auto close when clicking outside */
+document.addEventListener("click", (e) => {
+  if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+    nav.classList.remove("show");
+  }
+});
 
 </script>
 
