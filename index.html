@@ -293,10 +293,28 @@ footer{
 }
 
 /* ===== MOBILE RESPONSIVE ===== */
-@media (max-width:768px){
-    .contact-container{
-        flex-direction:column;
-    }
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav.show {
+    display: flex;
+  }
 }
 
 
@@ -464,6 +482,9 @@ footer{
 
 <header>
     <h2>LNI Automation</h2>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
         <nav>
             <a onclick="showPage('home-page')">Home</a>
             <a onclick="showPage('about-page')">About</a>
@@ -741,10 +762,10 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 <h3>Our Vision:</h3>
 <p> To be the first choice for small, medium, and large bakeries by fostering a future where advanced technology makes artisanal quality accessible at any scale.</p>
 <br>
-<h4>Chef Profile:</h4>
+<h3>Chef Profile:</h3>
 
 <p>
-Chef Gandhi M, our Head Chef, brings 18+ years of experience in professional bakery and food processing. With expertise in industrial and artisanal baking, recipe standardization, and food safety, Chef Gandhi M ensures consistent quality, great taste,and the highestone hygiene standards across all our products.
+<h4>Chef Gandhi M,</h4> our Head Chef, brings 18+ years of experience in professional bakery and food processing. With expertise in industrial and artisanal baking, recipe standardization, and food safety, Chef Gandhi M ensures consistent quality, great taste,and the highestone hygiene standards across all our products.
 </p>
 <br>
 Email: ✉ your.email@gmail.com <br>
@@ -1216,6 +1237,12 @@ document.getElementById("productModal").addEventListener("click", e => {
 document.addEventListener("keydown", e => {
     if (e.key === "Escape") closeModal();
 });
+
+
+function toggleMenu() {
+  document.querySelector('nav').classList.toggle('show');
+}
+
 
 </script>
 
