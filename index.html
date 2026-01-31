@@ -411,6 +411,7 @@ footer{
 }
 
 /* ===== MOBILE VIEW ===== */
+
 @media (max-width: 768px) {
 
   /* Prevent horizontal scroll */
@@ -430,11 +431,13 @@ footer{
 
   /* Hamburger button */
   .menu-btn {
-    display: Green;
+    display: none;
     font-size: 26px;
     background: none;
     border: none;
     cursor: pointer;
+    text-align:center;
+    background:#2ecc71; 
   }
 
 /* Desktop */
@@ -485,49 +488,6 @@ nav {
   .row {
     flex-direction: column;
   }
-}
-
-@media (max-width:768px){
-
-  /* Product / Services button alignment */
-  .dropdown{
-    width:100%;
-  }
-
-  .drop-btn{
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:14px 16px;
-    text-align:left;
-    background:#2ecc71;     /* product color */
-    color:#fff;
-    border:none;
-  }
-
-  /* Dropdown menu alignment */
-  .dropdown-menu{
-    position:static;
-    width:100%;
-    margin:0;
-    padding:0;
-    background:#1e8449;
-  }
-
-  /* Sub menu items */
-  .dropdown-menu a{
-    display:block;
-    padding:12px 32px;
-    text-align:left;
-    color:#fff;
-    background:#1e8449;
-  }
-
-  .dropdown-menu a:hover{
-    background:#28b463;
-  }
-
 }
 
 </style>
