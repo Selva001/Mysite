@@ -89,13 +89,13 @@ nav a{
 /* ================= CARDS ================= */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap:15px;
 }
 
 .card{
     background:#FFF3E6;
-    padding:15px;
+    padding:8px;
     border-radius:10px;
     box-shadow:0 6px 315px rgba(0,0,0,0.2);
     text-align:center;
@@ -298,42 +298,14 @@ footer{
 }
 
 .image-slider img{
-    width:100%;
+    width:80%;
+    max-width:500px;
     height:auto;
-    transition:opacity 0.5s ease;
+    transition:opacity 0.9s ease;
 }
 
-/* Arrows */
-.image-slider .arrow{
-    position:absolute;
-    top:65%;
-    transform:translateY(-50%);
-    width:0px;
-    height:0px;
-    background:rgba(0,0,0,0.6);
-    color:#fff;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    user-select:none;
-    font-size:16px;
-}
 
-.image-slider .left{
-    left:-3px;
-}
-
-.image-slider .right{
-    right:-4px;
-}
-
-.image-slider .arrow:hover{
-    background:#5f230a;
-}
-
-/* Button */
+/* Sub module Button Brown */
 .open-modal-btn{
     padding:10px 18px;
     background:Brown;
