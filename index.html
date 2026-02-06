@@ -427,28 +427,72 @@ footer{
 }
 
 
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-      }
+/* ===== HAMBURGER ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
 
-      .nav-links a {
-        text-align: center;
-        padding: 10px;
-        border-top: 1px solid #575757;
-      }
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
 
-      .hamburger {
-        display: flex;
-      }
+/* Show hamburger on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+}
 
-      .nav-links.active {
-        display: flex;
-      }
-    }
+/* ===== VIEW TOGGLE ===== */
+.view-toggle {
+  display: flex;
+  gap: 6px;
+}
+
+.view-toggle button {
+  padding: 6px 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ===== FORCE DESKTOP VIEW ===== */
+body.desktop-view {
+  max-width: 100%;
+}
+
+body.desktop-view .grid {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+body.desktop-view .contact-container,
+body.desktop-view .grid-container {
+  flex-direction: row !important;
+}
+
+/* ===== FORCE MOBILE VIEW ===== */
+body.mobile-view {
+  max-width: 420px;
+  margin: auto;
+}
+
+body.mobile-view .grid {
+  grid-template-columns: 1fr !important;
+}
+
+body.mobile-view .contact-container,
+body.mobile-view .grid-container {
+  flex-direction: column !important;
+}
+
+body.mobile-view nav.nav-links {
+  flex-direction: column;
+}
 
 
 </style>
@@ -459,13 +503,14 @@ footer{
 <header>
     <h2>LNI Bake Automation</h2>
 
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
 
-        <nav class="nav-links" id="nav-links">
+        <nav>
+
+<div class="view-toggle">
+  <button onclick="setView('desktop')">🖥</button>
+  <button onclick="setView('mobile')">📱</button>
+</div>
+
             <a onclick="showPage('home-page')">Home</a>
             <a onclick="showPage('about-page')">About</a>
             <a onclick="showPage('Products-page')">Products</a>
@@ -1144,16 +1189,11 @@ document.addEventListener("keydown", e => {
 
 
 /* Toggle menu */
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+function setView(view) {
+  document.body.classList.remove("desktop-view", "mobile-view");
+  document.body.classList.add(view + "-view");
+}
 
-    hamburger.addEventListener('click', () => 
-{
-      navLinks.classList.toggle('active');
-      // Animate hamburger icon
-      hamburger.classList.toggle('toggle');
-    });
 
 </script>
 
