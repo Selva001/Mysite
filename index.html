@@ -427,89 +427,64 @@ footer{
 }
 
 
-/* ===== HAMBURGER ===== */
+/* ===== HAMBURGER MENU ===== */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  gap: 4px;
+  gap: 5px;
 }
 
 .hamburger div {
-  width: 25px;
+  width: 26px;
   height: 3px;
   background: white;
+  border-radius: 2px;
 }
 
-/* Show hamburger on mobile */
+/* ===== MOBILE NAV ===== */
 @media (max-width: 768px) {
+
   .hamburger {
     display: flex;
   }
-}
 
-/* ===== VIEW TOGGLE ===== */
-.view-toggle {
-  display: flex;
-  gap: 6px;
-}
+  nav.nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--primary);
+    flex-direction: column;
+    text-align: center;
+    z-index: 999;
+  }
 
-.view-toggle button {
-  padding: 6px 8px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+  nav.nav-links a {
+    padding: 12px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+  }
 
-/* ===== FORCE DESKTOP VIEW ===== */
-body.desktop-view {
-  max-width: 100%;
+  nav.nav-links.active {
+    display: flex;
+  }
 }
-
-body.desktop-view .grid {
-  grid-template-columns: repeat(3, 1fr) !important;
-}
-
-body.desktop-view .contact-container,
-body.desktop-view .grid-container {
-  flex-direction: row !important;
-}
-
-/* ===== FORCE MOBILE VIEW ===== */
-body.mobile-view {
-  max-width: 420px;
-  margin: auto;
-}
-
-body.mobile-view .grid {
-  grid-template-columns: 1fr !important;
-}
-
-body.mobile-view .contact-container,
-body.mobile-view .grid-container {
-  flex-direction: column !important;
-}
-
-body.mobile-view nav.nav-links {
-  flex-direction: column;
-}
-
 
 </style>
 </head>
 
 <body>
-
 <header>
     <h2>LNI Bake Automation</h2>
 
-
-        <nav>
-
-<div class="view-toggle">
-  <button onclick="setView('desktop')">🖥</button>
-  <button onclick="setView('mobile')">📱</button>
+<div class="hamburger" id="hamburger">
+  <div></div>
+  <div></div>
+  <div></div>
 </div>
+
+        <nav class="nav-links" id="nav-links">
 
             <a onclick="showPage('home-page')">Home</a>
             <a onclick="showPage('about-page')">About</a>
@@ -1189,10 +1164,18 @@ document.addEventListener("keydown", e => {
 
 
 /* Toggle menu */
-function setView(view) {
-  document.body.classList.remove("desktop-view", "mobile-view");
-  document.body.classList.add(view + "-view");
-}
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll("#nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
 
 
 </script>
