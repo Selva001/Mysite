@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>LNI Food Machinery</title>
+<title>LNI BAKE AUTOMATION</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -88,13 +88,13 @@ nav a{
 
 /* ================= CARDS ================= */
 .grid{
-    display:grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap:15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Use 'repeat' with a fixed number, like 2 or 3, to force columns on mobile */
+    gap: 15px; /* Adjust spacing as needed */
 }
 
 .card{
-    background:#FFF3E6;
+    background:#f8eddc;
     padding:8px;
     border-radius:10px;
     box-shadow:0 6px 315px rgba(0,0,0,0.2);
@@ -110,7 +110,7 @@ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 {
   transform: translateY(-10px); /* Lifts the card */
   box-shadow: 0 12px 24px rgba(0,0,0,0.15); /* Adds depth */
- background-color:#8AFF8A; /* light green */
+ background-color:#98f598; /* light green */
 
 }
 
@@ -410,125 +410,20 @@ footer{
     background:#f2dcbb;
 }
 
-/* ===== MOBILE VIEW ===== */
+
+ /* Services page split columns */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  height: 50vh;
+}
+
+.panel-a { background:var(--light); color: BLACK; }
+.panel-b { background:var(--light); color: BLACK; }
+
+/* Mobile view: 1 column */
 @media (max-width: 768px) {
-
-  /* Prevent horizontal scroll */
-  body {
-    overflow-x: hidden;
-  }
-
-  /* Header */
-  header {
-    padding: 12px 16px;
-    flex-direction: row;
-  }
-
-  header h1 {
-    font-size: 20px;
-  }
-
-  /* Hamburger button */
-  .menu-btn {
-    display: none;
-    font-size: 26px;
-    background: WHITE;
-    border: BLACK;
-    cursor: pointer;
-  }
-
-/* Desktop */
-nav {
-  display: flex;
-}
-
-  /* Navigation */
-  nav {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #7B3F00;
-    display: none;
-    flex-direction: column;
-    z-index: 1000;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  nav a {
-    padding: 14px;
-    text-align: center;
-    color: #fff;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-  }
-
-  /* Sliders & images */
-  img,
-  .slider-box,
-  .image-slider {
-    width: 100%;
-    height: auto;
-  }
-
-  /* Cards */
-  .card {
-    width: 100%;
-    margin-bottom: 16px;
-  }
-
-  /* Flex sections stack */
-  .contact-container,
-  .card-container,
-  .row {
-    flex-direction: column;
-  }
-}
-
-@media (max-width:768px){
-
-  /* Product / Services button alignment */
-  .dropdown{
-    width:100%;
-  }
-
-  .drop-btn{
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:14px 16px;
-    text-align:left;
-    background:#2ecc71;     /* product color */
-    color:#fff;
-    border:none;
-  }
-
-  /* Dropdown menu alignment */
-  .dropdown-menu
-{
-    position:static;
-    width:100%;
-    margin:0;
-    padding:0;
-    background:#1e8449;
-  }
-
-  /* Sub menu items */
-  .dropdown-menu a{
-    display:block;
-    padding:12px 32px;
-    text-align:left;
-    color:#fff;
-    background:#1e8449;
-  }
-
-  .dropdown-menu a:hover{
-    background:#28b463;
-  }
-
+  .grid-container { grid-template-columns: 1fr; }
 }
 
 </style>
@@ -537,39 +432,14 @@ nav {
 <body>
 
 <header>
-    <h2>LNI Automation</h2>
+    <h2>LNI Bake Automation</h2>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
         <nav>
             <a onclick="showPage('home-page')">Home</a>
             <a onclick="showPage('about-page')">About</a>
-
-            <div class="dropdown">
-                <a>Products ▾</a>
-                <div class="dropdown-menu">
-                    <a onclick="showPage('Depositing-page')">Depositing</a>
-                    <a onclick="showPage('Baking-page')">Baking</a>
-                    <a onclick="showPage('Dough-page')">Dough Processing</a>
-                    <a onclick="showPage('CC-page')">Cooling, Chilling</a>
-                    <a onclick="showPage('Proffing-page')">Proffing</a>
-                    <a onclick="showPage('Mixing-page')">Mixing</a>
-                    <a onclick="showPage('SP-page')">Slicing / Packing</a>
-                    <a onclick="showPage('Cleaning-page')">Cleaning</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <a>Services ▾</a>
-                <div class="dropdown-menu">
-                    <a onclick="showPage('Plant Automation-page')">Plant Automation</a>
-                    <a onclick="showPage('Operation Planning-page')">Operation Planning</a>
-                    <a onclick="showPage('Training & Development-page')">Training & Development</a>
-                    <a onclick="showPage('New Plant Development-page')">New Plant Development</a>
-                    <a onclick="showPage('Quality Management Systems-page')">Quality Management Systems</a>
-                </div>
-            </div>
-
+            <a onclick="showPage('Products-page')">Products</a>
+            <a onclick="showPage('Services-page')">Services</a>
             <a onclick="showPage('contact-page')">Contact us</a>
         </nav>
 
@@ -608,9 +478,9 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
         <h3>Our Products</h3><br>
 <div class="grid">
 
-<!-- Depositing -->
+<!-- Depositor -->
 	<div class="card">
- 	<a onclick="showPage('Depositing-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+ 	<a onclick="showPage('Products-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
 		https://5.imimg.com/data5/SELLER/Default/2024/9/451660239/HD/CS/OA/42533001/cookie-dropping-machine-500x500.jpg,
 		https://5.imimg.com/data5/SELLER/Default/2024/11/466459637/GH/BZ/KG/6056272/images-2024-11-19t113829-413-copy.jpg">
@@ -620,13 +490,13 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<span class="arrow right"></span> 
 
 	</div>    
-	<h4>Depositing</h4>
+	<h4>Depositor</h4>
     	</a>
 	</div>
 
 <!-- Baking -->
 	<div class="card">
- 	<a onclick="showPage('Baking-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+ 	<a onclick="showPage('Products-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
 		https://5.imimg.com/data5/SELLER/Default/2025/3/499607308/YK/ML/KE/13069892/rotary-oven-120-trays-1000x1000.jpg,
 		https://5.imimg.com/data5/SELLER/Default/2025/6/521199496/CL/VK/IY/102174084/commercial-bakery-oven-1000x1000.webp">	
@@ -634,13 +504,13 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<img src="https://static.wixstatic.com/media/d14fdd_625377a97e934648a22196712be7ef7c~mv2.jpg/v1/fill/w_291,h_291,q_90,enc_avif,quality_auto/d14fdd_625377a97e934648a22196712be7ef7c~mv2.jpg" alt="Baking">
 	<span class="arrow right"></span>    
 	</div>    
-	<h4>Baking</h4>
+	<h4>Ovens</h4>
     	</a>
 	</div>
 
 <!-- Dough -->
 	<div class="card">
- 	<a onclick="showPage('Dough-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+ 	<a onclick="showPage('Products-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
 		https://4.imimg.com/data4/JO/QD/MY-26185899/sinmag-sheeter-1000x1000.jpg,
 		https://5.imimg.com/data5/VL/PK/MY-2099982/dough-divider-1000x1000.jpg,
@@ -649,13 +519,13 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<img src="https://4.imimg.com/data4/JO/QD/MY-26185899/sinmag-sheeter-1000x1000.jpg" alt="Dough">
 	<span class="arrow right"></span>    
 	</div>    
-	<h4>Dough</h4>
+	<h4>Dough Sheeters</h4>
     	</a>
 	</div>
 
 <!-- CC -->
 	<div class="card">
- 	<a onclick="showPage('CC-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+ 	<a onclick="showPage('Products-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
 		https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhl1-Oz1_NgtMQxa1fLiceR6FxXI-uaeDb0A&s,
 		https://s.alicdn.com/@sc04/kf/Heeb6a604600046929bab4cb1f2db24f1p/Cooking-Preservation-Bakery-Vacuum-Cooler-Pre-Chiller-Foods-Machine-Food-Cooling-for-Noodles.jpg,
@@ -670,7 +540,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 
 <!-- Proofing -->
 	<div class="card">
- 	<a onclick="showPage('Proofing-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+ 	<a onclick="showPage('Products-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
 		https://5.imimg.com/data5/SELLER/Default/2022/11/XR/ON/CP/3709012/bread-proofer-machine-1000x1000.png,
 		http://5.imimg.com/data5/SELLER/Default/2021/3/YJ/CY/ZV/51711716/32-tray-proofer-machine-500x500.jpg,
@@ -679,13 +549,13 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<img src="https://5.imimg.com/data5/SELLER/Default/2022/11/XR/ON/CP/3709012/bread-proofer-machine-1000x1000.png" alt="Proofing">
 	<span class="arrow right"></span>    
 	</div>    
-	<h4>Proofing</h4>
+	<h4>Proofboxes</h4>
     	</a>
 	</div>
 
 <!-- Mixing -->
 	<div class="card">
- 	<a onclick="showPage('Mixing-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+ 	<a onclick="showPage('Products-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
 		https://5.imimg.com/data5/KN/YY/MY-2250436/sancassiano-3a-just-mix-it-1000x1000.jpg,
 		https://3.imimg.com/data3/KW/HB/MY-2088493/mixer-with-beater-arms-serie-500x500.jpg,
@@ -694,12 +564,12 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<img src="https://5.imimg.com/data5/KN/YY/MY-2250436/sancassiano-3a-just-mix-it-1000x1000.jpg" alt="Mixing">
 	<span class="arrow right"></span>    
 	</div>    
-	<h4>Mixing</h4>
+	<h4>Mixers</h4>
     	</a>
 	</div>
 <!-- SP -->
 	<div class="card">
- 	<a onclick="showPage('SP-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+ 	<a onclick="showPage('Products-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
 		http://5.imimg.com/data5/SELLER/Default/2024/6/425609311/MY/PV/IA/42487772/breading-slicer-machine-1000x1000.jpg,
 		http://5.imimg.com/data5/SELLER/Default/2023/3/291921264/VN/EO/OM/2715705/reva-heavy-duty-bread-slicer-machine-1000x1000.png,
@@ -708,13 +578,13 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<img src="http://5.imimg.com/data5/SELLER/Default/2024/6/425609311/MY/PV/IA/42487772/breading-slicer-machine-1000x1000.jpg" alt="Slicing / Packing">
 	<span class="arrow right"></span>    
 	</div>    
-	<h4>Slicing / Packing</h4>
+	<h4>Slicer / Packing</h4>
     	</a>
 	</div>
 
 <!-- Cleaning -->
 	<div class="card">
- 	<a onclick="showPage('Cleaning-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
+ 	<a onclick="showPage('Products-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
 		https://cpimg.tistatic.com/06595399/b/4/Crate-Washer-Basket-Tray-Washing-Machine.jpg,
 		https://5.imimg.com/data5/SELLER/Default/2024/4/409920065/BG/PG/IZ/3651265/plastic-bin-washing-machine-500x500.jpg,
@@ -723,7 +593,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<img src="https://cpimg.tistatic.com/06595399/b/4/Crate-Washer-Basket-Tray-Washing-Machine.jpg" alt="Cleaning">
 	<span class="arrow right"></span>    
 	</div>    
-	<h4>Cleaning</h4>
+	<h4>Cleaners</h4>
     	</a>
 	</div>
 </div>
@@ -766,6 +636,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 <br>
 
 ----------------------------------------------------
+
 <!-- ================= HOME CONTACT FORM ================= -->
 <section class="section contact-section" id="contact">
     <div class="contact-container">
@@ -826,10 +697,13 @@ Mobile: ✆ +1 (234) 567-890
 </div>
 
 
-<!-- ================= Start Depositing to list of item PAGE ================= -->
-<div id="Depositing-page" class="page">
+<!-- ================= Start list of products PAGE ================= -->
+
+<div id="Products-page" class="page">
+
 <section class="section">
-<h3>Equipment for Depositing</h3><br>
+<h3>List of products</h3><br>
+
 <div class="grid">
 
 <!-- Overlay -->
@@ -843,7 +717,7 @@ Mobile: ✆ +1 (234) 567-890
 
 <!-- DEPOSITOR 1 -->
 <div class="card">
-    <img src="F:\3.New Project\Final Version\Sub Photos\Depositer 1_1.png" alt="Depositor 1">
+    <img src="https://i.ibb.co/2YkR0jMS/Depositer-1-1.png" alt="Depositor 1">
     <h4>DEPOSITOR 1</h4>
     <button class="open-modal-btn" onclick="openModal('dep1')">Know more</button>
 </div>
@@ -862,204 +736,156 @@ Mobile: ✆ +1 (234) 567-890
     <button class="open-modal-btn" onclick="openModal('dep3')">Know more</button>
 </div>
 
-<!-- DEPOSITOR 4 -->
+<!-- DEPOSITOR 1 -->
 <div class="card">
-    <img src="F:\3.New Project\Final Version\Sub Photos\Dough Freeyer 2 auto.png" alt="Depositor 4">
-    <h4>DEPOSITOR 4</h4>
-    <button class="open-modal-btn" onclick="openModal('dep4')">Know more</button>
+    <img src="https://i.ibb.co/2YkR0jMS/Depositer-1-1.png" alt="Depositor 1">
+    <h4>DEPOSITOR 1</h4>
+    <button class="open-modal-btn" onclick="openModal('dep1')">Know more</button>
 </div>
 
-<!-- DEPOSITOR 5 -->
+<!-- DEPOSITOR 2 -->
 <div class="card">
-    <img src="F:\3.New Project\Final Version\Sub Photos\pro bread plant.png" alt="Depositor 5">
-    <h4>DEPOSITOR 5</h4>
-    <button class="open-modal-btn" onclick="openModal('dep5')">Know more</button>
+    <img src="F:\3.New Project\Final Version\Sub Photos\Depositer 2.png" alt="Depositor 2">
+    <h4>DEPOSITOR 2</h4>
+    <button class="open-modal-btn" onclick="openModal('dep2')">Know more</button>
 </div>
 
-<!-- DEPOSITOR 6 -->
+<!-- DEPOSITOR 3 -->
 <div class="card">
-    <img src="F:\3.New Project\Final Version\Sub Photos\pro bread plant1.png" alt="Depositor 6">
-    <h4>DEPOSITOR 6</h4>
-    <button class="open-modal-btn" onclick="openModal('dep6')">Know more</button>
+    <img src="F:\3.New Project\Final Version\Sub Photos\donut freeyer.png" alt="Depositor 3">
+    <h4>DEPOSITOR 3</h4>
+    <button class="open-modal-btn" onclick="openModal('dep3')">Know more</button>
 </div>
 
-
+<!-- DEPOSITOR 1 -->
+<div class="card">
+    <img src="https://i.ibb.co/2YkR0jMS/Depositer-1-1.png" alt="Depositor 1">
+    <h4>DEPOSITOR 1</h4>
+    <button class="open-modal-btn" onclick="openModal('dep1')">Know more</button>
 </div>
+
+<!-- DEPOSITOR 2 -->
+<div class="card">
+    <img src="F:\3.New Project\Final Version\Sub Photos\Depositer 2.png" alt="Depositor 2">
+    <h4>DEPOSITOR 2</h4>
+    <button class="open-modal-btn" onclick="openModal('dep2')">Know more</button>
+</div>
+
+<!-- DEPOSITOR 3 -->
+<div class="card">
+    <img src="F:\3.New Project\Final Version\Sub Photos\donut freeyer.png" alt="Depositor 3">
+    <h4>DEPOSITOR 3</h4>
+    <button class="open-modal-btn" onclick="openModal('dep3')">Know more</button>
+</div>
+
+</div> <!-- Grid -->
 </section>
-</div>
+</div> <!-- page End -->
 
-<!-- ================= BAKING PAGE ================= -->
-<div id="Baking-page" class="page">
+
+<!-- ================= HOME SERVICES ================= -->
+
+<div id="Services-page" class="page">
+
+<!-- Plant Automation -->
 <section class="section">
-        <h2>Baking</h2>
-<div class="grid">
-            	<div class="card">
-                <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/OM/MU/TV/11063257/r-800-rotary-rack-oven-250x250.jpg">
-                <h3>ROTARY OVENS</h3>
-                <p>16–32 trays • Gas/Diesel • Uniform baking</p>
-            	</div>
-            	<div class="card">
-                <h3>Deck Oven</h3>
-                <p>Stone base • Artisan bread • Multi-deck</p>
-        	</div>
-            	<div class="card">
-                <h3>REEL OVEN</h3>
-                <p>Stone base • Artisan bread • Multi-deck</p>
-        	</div>
+<h3>Plant Automation</h3>
+<div class="grid-container">
+	<section class="panel-a">
+▪️ Plant automation in food processing and bakery environments focuses on transforming manual workflows into high-efficiency, integrated production systems. By leveraging advanced PLC control systems and real-time monitoring, these solutions ensure consistency, hygiene, and scalability.<br>
+▪️ End-to-End Line Integration: Systems connect every stage, from ingredient handling and mixing to baking, cooling, and automated packaging.<br>
+▪️ Advanced PLC-based systems regulate critical parameters like temperature, humidity, and timing, ensuring repeatable product quality.
+	</section>
+
+	<section class="panel-b">
+<img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg" 
+     style="width: 500px; height: 250px;" 
+     alt="Woman working in office">
+	</section>
 </div>
 </section>
-</div>
 
-<!-- ================= Dough PAGE ================= -->
-<div id="Dough-page" class="page">
+<!-- Operation Planning -->
 <section class="section">
-        <h2>Baking</h2>
-<div class="grid">
-            	
-Add Dough Images
 
+<div class="grid-container">
+	<section class="panel-a">
+<img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg" 
+     style="width: 500px; height: 300px;" 
+     alt="Woman working in office">
+	</section>
+
+	<section class="panel-b">
+<h3>Operation Planning</h3> 
+
+<p style="text-align: left;">
+▪️Operation Planning is the blueprint for scaling production while maintaining the strict quality and food safety standards required for high-volume output. It bridges the gap between raw ingredient sourcing and the final delivery of fresh or shelf-stable goods.
+</p>
+▪️Automated systems provide a "single source of truth" for stock levels, preventing production halts due to missing minor ingredients like enzymes or yeast.<br>
+▪️FEFO Logic: Automated First-Expiry, First-Out (FEFO) protocols ensure that perishable ingredients are used in their peak window.
+	</section>
 </div>
 </section>
-</div>
 
-<!-- ================= CC PAGE ================= -->
-<div id="CC-page" class="page">
+<!-- Training & Development -->
 <section class="section">
-        <h2>Baking</h2>
-<div class="grid">
-            	
-Add CC Images
+<h3>Training & Development</h3>
+<div class="grid-container">
+	<section class="panel-a">
+▪️ <br>
+▪️ <br>
+▪️ 	</section>
 
+	<section class="panel-b">
+<img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg" 
+     style="width: 500px; height: 250px;" 
+     alt="Woman working in office">
+	</section>
 </div>
 </section>
-</div>
 
-<!-- ================= Proffing PAGE ================= -->
-<div id="Proffing-page" class="page">
+<!-- New Plant Development -->
 <section class="section">
-        <h2>Baking</h2>
-<div class="grid">
-            	
-Add Proffing Images
 
+<div class="grid-container">
+	<section class="panel-a">
+<img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg" 
+     style="width: 500px; height: 300px;" 
+     alt="Woman working in office">
+	</section>
+
+	<section class="panel-b">
+<h3>New Plant Development</h3> 
+
+<p style="text-align: left;">
+▪️
+</p>
+▪️<br>
+▪️
+	</section>
 </div>
 </section>
-</div>
-
-<!-- ================= Mixing PAGE ================= -->
-<div id="Mixing-page" class="page">
-<section class="section">
-        <h2>Baking</h2>
-<div class="grid">
-            	
-Add Mixing Images
-
-</div>
-</section>
-</div>
-
-<!-- ================= SERVICES Plant Automation ================= -->
-
-<div id="Plant Automation-page" class="page">
-    <section class="section">
-        <h3>Plant Automation</h3><br>
-        <div class="contact-container">
-            <div class="card">
-<p>LNI Productions is a leader in delivering advanced food processing and bakery automation solutions that seamlessly integrate cutting-edge technology into modern production environments. We provide end-to-end automation services, from targeted process improvements to fully automated production lines, designed to enhance efficiency and scalability.<br> <br>
-By leveraging robotics, IoT-enabled monitoring, and intelligent control systems, we help food manufacturers achieve consistent product quality, higher yields, and optimized operational performance.<br><br> 
-Our solutions significantly reduce manual dependency while improving food safety and process reliability, enabling businesses to stay competitive in an increasingly demanding and fast-paced food industry.
-</p></div>
-
-        </div>
-    </section>
-</div>
-
-
-<!-- ================= SERVICES Operation Planning ================= -->
-
-<div id="Operation Planning-page" class="page">
-    <section class="section">
-        <h3>Operation Planning</h3><br>
-        <div class="contact-container">
-            <div class="card">
-<p>Efficient operation planning is essential for meeting production goals while maintaining quality and minimizing costs. At Autobake Productions, our operation planning experts collaborate closely with your team to design actionable strategies.</p>
 <br>
-<p>From raw material sourcing to finished product delivery, we ensure that each step of your bakery's operation is optimized. Our holistic approach encompasses demand forecasting and inventory management while streamlining logistics so that you navigate challenges confidently.
-</p></div>
-
-        </div>
-    </section>
-</div>
-
-<!-- ================= SERVICES Training & Development ================= -->
-
-<div id="Training & Development-page" class="page">
-    <section class="section">
-        <h3>Training & Development</h3><br>
-        <div class="contact-container">
-            <div class="card">
-<p>The success of any bakery relies on a skilled workforce. Autobake Productions offers comprehensive training and development programs tailored to the bakery industry. Our experienced trainers cover every baking-related topic, from operational best practices to safety and hygiene protocols.</p>
-<br>
-<p>These hands-on workshops and customized training modules empower staff to operate equipment efficiently, maintain high-quality standards, and swiftly adapt to evolving technology and trends.
-</p></div>
-
-        </div>
-    </section>
-</div>
-
-<!-- ================= SERVICES New Plant Development ================= -->
-
-<div id="New Plant Development-page" class="page">
-
-<section class="section contact-section" id="contact">
-<h3>New Plant Development:</h3>
-    <div class="contact-container">
-The initial setup of high-quality production standards and day-to-day <br> 
-operations is often easy! However, maintaining those high standards of consistent <br> 
-product quality over long periods is much more challenging. <br>
-Autobake Productions implements robust Quality Management Systems (QMS) <br>
-that ensure manufactured products exceed customer expectations.<br>
-Our QMS experts help you develop and implement quality control processes, <br>
-quality assurance protocols, and traceability systems. <br>
-This results in improved product consistency, compliance with regulatory standards, <br>
-and enhanced customer satisfaction.
-<br><br>
-        <!-- RIGHT: IMAGE -->
-        <div class="contact-image">
- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2_kBqD9kCt7C757DHhxE5WLnOZs1xnH6E2A&s">
-
-	 </div>
 
 
-</section>
-
-</div>
-
-<!-- ================= SERVICES Quality Management Systems ================= -->
-
-<div id="Quality Management Systems-page" class="page">
-
-<section class="section contact-section" id="contact">
+<!-- Quality Management Systems -->
+<section class="section">
 <h3>Quality Management Systems</h3>
-    <div class="contact-container">
-The initial setup of high-quality production standards and day-to-day <br> 
-operations is often easy! However, maintaining those high standards of consistent <br> 
-product quality over long periods is much more challenging. <br>
-Autobake Productions implements robust Quality Management Systems (QMS) <br>
-that ensure manufactured products exceed customer expectations.<br>
-Our QMS experts help you develop and implement quality control processes, <br>
-quality assurance protocols, and traceability systems. <br>
-This results in improved product consistency, compliance with regulatory standards, <br>
-and enhanced customer satisfaction.
-<br><br>
-        <!-- RIGHT: IMAGE -->
-        <div class="contact-image">
- <img src="https://www.ficsi.in/blog/wp-content/uploads/2022/09/July-blog-3.jpg">
-	 </div>
+<div class="grid-container">
+	<section class="panel-a">
+▪️ <br>
+▪️ <br>
+▪️ 	</section>
 
+	<section class="panel-b">
+<img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg" 
+     style="width: 500px; height: 250px;" 
+     alt="Woman working in office">
+	</section>
+</div>
 </section>
 
-</div>
+</div> <!-- End -->
 
 <!-- ================= HOME CONTACT FORM ================= -->
 <div id="contact-page" class="page">
@@ -1083,13 +909,13 @@ and enhanced customer satisfaction.
         <!-- RIGHT: IMAGE -->
         <div class="contact-image">
  <img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg">
-
 	 </div>
 
 
 </section>
 <br><br>
 </div>
+
 <footer>
 @2026 LNI FOOD AUTOMATION. 
   <!-- SOCIAL ICONS -->
