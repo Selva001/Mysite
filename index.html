@@ -478,6 +478,45 @@ footer{
   }
 }
 
+/* ===== MOBILE: KEEP SERVICES PAGE DESKTOP LAYOUT ===== */
+@media (max-width: 768px) {
+
+  #Services-page .grid-container {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  #Services-page .panel-a,
+  #Services-page .panel-b {
+    width: 100%;
+  }
+}
+
+/* ===== MOBILE FIX: EQUIPMENT TO PRODUCE ALIGNMENT ===== */
+@media (max-width: 768px) {
+
+  /* Center cards nicely */
+  #home-page .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Fix inner images alignment */
+  #home-page .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #home-page .card img {
+    margin: 6px auto;
+    display: block;
+  }
+
+  #home-page .card h4 {
+    margin-top: 8px;
+    text-align: center;
+  }
+}
+
 </style>
 </head>
 
