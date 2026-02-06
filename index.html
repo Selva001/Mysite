@@ -427,24 +427,28 @@ footer{
 }
 
 
-/* Default Mobile Styles */
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+      }
 
-/* Tablet & Desktop Adjustments */
-@media screen and (min-width: 768px) {
-    .nav-links {
+      .nav-links a {
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid #575757;
+      }
+
+      .hamburger {
         display: flex;
-        flex-direction: row;
-        width: auto;
-    }
-    .menu-btn {
-        display: none; /* Hide hamburger menu on large screens */
-    }
-}
+      }
 
-img {
-    max-width: 100%; /* Prevents images from overflowing */
-    height: auto;
-}
+      .nav-links.active {
+        display: flex;
+      }
+    }
 
 
 </style>
@@ -455,9 +459,13 @@ img {
 <header>
     <h2>LNI Bake Automation</h2>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
 
-        <nav class="navbar">
+        <nav class="nav-links" id="nav-links">
             <a onclick="showPage('home-page')">Home</a>
             <a onclick="showPage('about-page')">About</a>
             <a onclick="showPage('Products-page')">Products</a>
@@ -1136,14 +1144,16 @@ document.addEventListener("keydown", e => {
 
 
 /* Toggle menu */
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
 
-// Toggle the mobile menu when clicking the button
-menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
+    hamburger.addEventListener('click', () => 
+{
+      navLinks.classList.toggle('active');
+      // Animate hamburger icon
+      hamburger.classList.toggle('toggle');
+    });
 
 </script>
 
