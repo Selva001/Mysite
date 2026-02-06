@@ -891,9 +891,7 @@ Mobile: ✆ +1 (234) 567-890
 	</section>
 
 	<section class="panel-b">
-<img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg" 
-     style="width: 300px; height: 150px;" 
-     alt="Woman working in office">
+<Image>
 	</section>
 </div>
 </section>
@@ -903,7 +901,7 @@ Mobile: ✆ +1 (234) 567-890
 
 <div class="grid-container">
 	<section class="panel-a">
-<img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg" 
+<Image>
      style="width: 300px; height: 150px;" 
      alt="Woman working in office">
 	</section>
@@ -930,7 +928,7 @@ Mobile: ✆ +1 (234) 567-890
 ▪️ 	</section>
 
 	<section class="panel-b">
-<img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg" 
+<Image>
      style="width: 300px; height: 150px;" 
      alt="Woman working in office">
 	</section>
@@ -942,7 +940,7 @@ Mobile: ✆ +1 (234) 567-890
 
 <div class="grid-container">
 	<section class="panel-a">
-<img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg" 
+<Image> 
      style="width: 300px; height: 150px;" 
      alt="Woman working in office">
 	</section>
@@ -971,7 +969,7 @@ Mobile: ✆ +1 (234) 567-890
 ▪️ 	</section>
 
 	<section class="panel-b">
-<img src="https://thumbs.dreamstime.com/b/woman-office-write-notes-use-smart-phone-wooden-table-75124968.jpg" 
+<Image> 
      style="width: 300px; height: 150px;" 
      alt="Woman working in office">
 	</section>
@@ -1220,6 +1218,19 @@ document.querySelectorAll("#nav-links a").forEach(link => {
   });
 });
 
+document.addEventListener("click", function (e) {
+  const nav = document.getElementById("nav-links");
+  const hamburger = document.getElementById("hamburger");
+
+  // If menu is open and click is outside menu & hamburger
+  if (
+    nav.classList.contains("active") &&
+    !nav.contains(e.target) &&
+    !hamburger.contains(e.target)
+  ) {
+    nav.classList.remove("active");
+  }
+});
 
 </script>
 
