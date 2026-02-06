@@ -426,6 +426,27 @@ footer{
   .grid-container { grid-template-columns: 1fr; }
 }
 
+
+/* Default Mobile Styles */
+
+/* Tablet & Desktop Adjustments */
+@media screen and (min-width: 768px) {
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+    }
+    .menu-btn {
+        display: none; /* Hide hamburger menu on large screens */
+    }
+}
+
+img {
+    max-width: 100%; /* Prevents images from overflowing */
+    height: auto;
+}
+
+
 </style>
 </head>
 
@@ -434,8 +455,9 @@ footer{
 <header>
     <h2>LNI Bake Automation</h2>
 
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-        <nav>
+        <nav class="navbar">
             <a onclick="showPage('home-page')">Home</a>
             <a onclick="showPage('about-page')">About</a>
             <a onclick="showPage('Products-page')">Products</a>
@@ -1113,36 +1135,15 @@ document.addEventListener("keydown", e => {
 });
 
 
-/* Toggleview */
+/* Toggle menu */
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
 
-const nav = document.querySelector("nav");
-const menuBtn = document.querySelector(".menu-btn");
-
-/* Toggle on button click */
-function toggleMenu() {
-  nav.classList.toggle("show");
-}
-
-/* Auto close when clicking a link */
-document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("show");
-  });
+// Toggle the mobile menu when clicking the button
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
 });
 
-/* Auto close when resizing screen */
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 768) {
-    nav.classList.remove("show");
-  }
-});
-
-/* Auto close when clicking outside */
-document.addEventListener("click", (e) => {
-  if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
-    nav.classList.remove("show");
-  }
-});
 
 </script>
 
