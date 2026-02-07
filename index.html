@@ -539,6 +539,26 @@ footer{
   }
 }
 
+/* ===== PRODUCT PAGE: KEEP 3 CARDS EVEN ON MOBILE ===== */
+@media (max-width: 768px) {
+
+  #Products-page .grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 15px;
+  }
+
+  #Products-page .card {
+    width: 100%;
+  }
+
+  #Products-page img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
 </style>
 </head>
 
