@@ -539,24 +539,6 @@ footer{
   }
 }
 
-/* ===== PRODUCT PAGE: KEEP 3 CARDS EVEN ON MOBILE ===== */
-@media (max-width: 768px) {
-
-  #Products-page .grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 15px;
-  }
-
-  #Products-page .card {
-    width: 100%;
-  }
-
-  #Products-page img {
-    max-width: 100%;
-    height: auto;
-  }
-}
 
 /* ===== PRODUCT SEARCH RIGHT SIDE ===== */
 .product-controls {
@@ -580,6 +562,30 @@ footer{
 
   .product-controls input {
     width: 90%;
+  }
+}
+
+/* ===== PRODUCTS PAGE MOBILE: SINGLE CARD LIKE HOME ===== */
+@media (max-width: 768px) {
+
+  #Products-page .grid {
+    grid-template-columns: 1fr;
+  }
+
+  #Products-page .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #Products-page .card img {
+    margin: 6px auto;
+    display: block;
+  }
+
+  #Products-page .card h4 {
+    text-align: center;
+    margin-top: 8px;
   }
 }
 
