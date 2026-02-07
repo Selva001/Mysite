@@ -589,6 +589,22 @@ footer{
   }
 }
 
+/* ===== SERVICES PAGE IMAGE FIX FOR MOBILE ===== */
+@media (max-width: 768px) {
+
+  #Services-page .panel-a img,
+  #Services-page .panel-b img {
+    display: block !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 10px auto;
+  }
+
+  #Services-page .panel-a,
+  #Services-page .panel-b {
+    overflow: visible !important;
+  }
+}
 
 </style>
 </head>
@@ -1054,11 +1070,33 @@ Mobile: ✆ +1 (234) 567-890
 	
 <script>
 
-function showPage(pageId)
-{
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
+/* ===== HOME PAGE MOVE SLIDER SCRIPT ===== */
+
+function showPage(pageId) {
+  // Hide all pages
+  document.querySelectorAll(".page").forEach(page => {
+    page.style.display = "none";
+  });
+
+  // Show selected page
+  document.getElementById(pageId).style.display = "block";
+
+  // Close mobile menu
+  document.getElementById("nav-links").classList.remove("active");
+
+  // Reset product search when leaving Products page
+  if (pageId !== "Products-page") {
+    const searchInput = document.getElementById("productSearch");
+    const notFound = document.getElementById("noProductFound");
+    const cards = document.querySelectorAll("#Products-page .card");
+
+    if (searchInput) searchInput.value = "";
+    if (notFound) notFound.style.display = "none";
+
+    cards.forEach(card => {
+      card.style.display = "block";
+    });
+  }
 }
 
 
