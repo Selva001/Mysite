@@ -492,6 +492,7 @@ footer{
   }
 }
 
+
 /* ===== MOBILE FIX: EQUIPMENT TO PRODUCE ALIGNMENT ===== */
 @media (max-width: 768px) {
 
@@ -515,27 +516,6 @@ footer{
   #home-page .card h4 {
     margin-top: 8px;
     text-align: center;
-  }
-}
-
-/* ===== FORCE DESKTOP LAYOUT ON MOBILE FOR SERVICES PAGE ===== */
-@media (max-width: 768px) {
-
-  #Services-page .grid-container {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 20px;
-  }
-
-  #Services-page .panel-a,
-  #Services-page .panel-b {
-    width: 100% !important;
-  }
-
-  /* Prevent image shrinking or stacking */
-  #Services-page img {
-    max-width: 100% !important;
-    height: auto;
   }
 }
 
@@ -589,22 +569,6 @@ footer{
   }
 }
 
-/* ===== SERVICES PAGE IMAGE FIX FOR MOBILE ===== */
-@media (max-width: 768px) {
-
-  #Services-page .panel-a img,
-  #Services-page .panel-b img {
-    display: block !important;
-    max-width: 100% !important;
-    height: auto !important;
-    margin: 10px auto;
-  }
-
-  #Services-page .panel-a,
-  #Services-page .panel-b {
-    overflow: visible !important;
-  }
-}
 
 </style>
 </head>
