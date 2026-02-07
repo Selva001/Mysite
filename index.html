@@ -558,6 +558,31 @@ footer{
   }
 }
 
+/* ===== PRODUCT SEARCH RIGHT SIDE ===== */
+.product-controls {
+  display: flex;
+  justify-content: flex-end; /* RIGHT SIDE */
+  margin-bottom: 20px;
+}
+
+.product-controls input {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+  min-width: 260px;
+}
+
+@media (max-width: 768px) {
+  .product-controls {
+    justify-content: center;
+  }
+
+  .product-controls input {
+    width: 90%;
+  }
+}
+
 
 </style>
 </head>
@@ -838,7 +863,16 @@ Mobile: ✆ +1 (234) 567-890
 <div id="Products-page" class="page">
 
 <section class="section">
-<h3>List of products</h3><br>
+
+<!-- ===== PRODUCT SEARCH ===== -->
+<div class="product-controls"><h4>Products:</h4>
+<input type="text" id="productSearch" placeholder="Search product name..." onkeyup="searchProducts()">   
+<p id="noProductFound" style="display:none; text-align:center; margin-top:20px; color:#7B3F00; font-weight:bold;">
+  Product not found
+</p>
+
+</div>
+
 
 <div class="grid">
 
@@ -851,68 +885,41 @@ Mobile: ✆ +1 (234) 567-890
     </div>
 </div>
 
-<!-- DEPOSITOR 1 -->
-<div class="card">
-    <img src="https://i.ibb.co/2YkR0jMS/Depositer-1-1.png" alt="Depositor 1">
-    <h4>DEPOSITOR 1</h4>
+<!-- Shuffle-Mix 1 -->
+<div class="card" data-name="SHUFFLEMIXER">
+    <img src="https://static.wixstatic.com/media/d14fdd_8047f17eae664c0e89b943d4e4229897~mv2.jpg/v1/crop/x_89,y_0,w_625,h_529/fill/w_750,h_635,al_c,lg_1,q_85,enc_avif,quality_auto/Shufflemixer250.jpg" alt="SHUFFLEMIXER">
+    <h4>SHUFFLEMIXER</h4>
     <button class="open-modal-btn" onclick="openModal('dep1')">Know more</button>
 </div>
 
-<!-- DEPOSITOR 2 -->
-<div class="card">
-    <img src="F:\3.New Project\Final Version\Sub Photos\Depositer 2.png" alt="Depositor 2">
-    <h4>DEPOSITOR 2</h4>
+<!-- STARMIX 2 -->
+<div class="card" data-name="STARMIX">
+    <img src="https://static.wixstatic.com/media/d14fdd_52a4432e0a5c40daa2c97ff0ea794880~mv2.jpg/v1/fill/w_510,h_714,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/PL160N.jpg" alt="STARMIX">
+    <h4>STARMIX</h4>
     <button class="open-modal-btn" onclick="openModal('dep2')">Know more</button>
 </div>
 
-<!-- DEPOSITOR 3 -->
-<div class="card">
-    <img src="F:\3.New Project\Final Version\Sub Photos\donut freeyer.png" alt="Depositor 3">
-    <h4>DEPOSITOR 3</h4>
+<!-- BELTOP DEPOSITOR -->
+<div class="card" data-name="BELTOP DEPOSITOR">
+    <img src="https://static.wixstatic.com/media/d14fdd_eae2f6ba9d0f42e4914a45555a47bca1~mv2_d_1200_1200_s_2.jpg/v1/fill/w_584,h_580,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Beltop-275-depositor.jpg" alt="Depositor">
+    <h4>BELTOP DEPOSITOR</h4>
     <button class="open-modal-btn" onclick="openModal('dep3')">Know more</button>
 </div>
 
-<!-- DEPOSITOR 1 -->
-<div class="card">
-    <img src="https://i.ibb.co/2YkR0jMS/Depositer-1-1.png" alt="Depositor 1">
-    <h4>DEPOSITOR 1</h4>
-    <button class="open-modal-btn" onclick="openModal('dep1')">Know more</button>
-</div>
-
-<!-- DEPOSITOR 2 -->
-<div class="card">
-    <img src="F:\3.New Project\Final Version\Sub Photos\Depositer 2.png" alt="Depositor 2">
-    <h4>DEPOSITOR 2</h4>
-    <button class="open-modal-btn" onclick="openModal('dep2')">Know more</button>
-</div>
-
-<!-- DEPOSITOR 3 -->
-<div class="card">
-    <img src="F:\3.New Project\Final Version\Sub Photos\donut freeyer.png" alt="Depositor 3">
-    <h4>DEPOSITOR 3</h4>
+<!-- Deck Oven -->
+<div class="card" data-name="Deck Oven">
+    <img src="https://static.wixstatic.com/media/0c2b1f_f7510a434a334abdbb23828c576d9130~mv2.png/v1/crop/x_0,y_165,w_2000,h_1670/fill/w_412,h_344,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/tokura%20deck.png" alt="Deck Oven">
+    <h4>Deck Oven</h4>
     <button class="open-modal-btn" onclick="openModal('dep3')">Know more</button>
 </div>
 
-<!-- DEPOSITOR 1 -->
-<div class="card">
-    <img src="https://i.ibb.co/2YkR0jMS/Depositer-1-1.png" alt="Depositor 1">
-    <h4>DEPOSITOR 1</h4>
-    <button class="open-modal-btn" onclick="openModal('dep1')">Know more</button>
-</div>
-
-<!-- DEPOSITOR 2 -->
-<div class="card">
-    <img src="F:\3.New Project\Final Version\Sub Photos\Depositer 2.png" alt="Depositor 2">
-    <h4>DEPOSITOR 2</h4>
-    <button class="open-modal-btn" onclick="openModal('dep2')">Know more</button>
-</div>
-
-<!-- DEPOSITOR 3 -->
-<div class="card">
-    <img src="F:\3.New Project\Final Version\Sub Photos\donut freeyer.png" alt="Depositor 3">
-    <h4>DEPOSITOR 3</h4>
+<!-- Cake Slicing -->
+<div class="card" data-name="Cake Slicing">
+    <img src="https://static.wixstatic.com/media/0c2b1f_92ff3d1e90a64fb18a43eac76c9656c9~mv2.png/v1/crop/x_0,y_165,w_2000,h_1670/fill/w_412,h_344,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/hydroprocess%20chef%20cut.png" alt="Cake Slicing">
+    <h4>Cake Slicing</h4>
     <button class="open-modal-btn" onclick="openModal('dep3')">Know more</button>
 </div>
+
 
 </div> <!-- Grid -->
 </section>
@@ -1237,6 +1244,35 @@ document.addEventListener("click", function (e) {
     nav.classList.remove("active");
   }
 });
+
+
+/* Search Option */
+
+function searchProducts() {
+  const value = document
+    .getElementById("productSearch")
+    .value
+    .toLowerCase();
+
+  const cards = document.querySelectorAll("#Products-page .card");
+  const notFound = document.getElementById("noProductFound");
+
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const name = card.dataset.name.toLowerCase();
+
+    if (name.includes(value)) {
+      card.style.display = "block";
+      visibleCount++;
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  // Show / hide "not found" message
+  notFound.style.display = visibleCount === 0 ? "block" : "none";
+}
 
 </script>
 
