@@ -5,6 +5,7 @@
 <title>LNI BAKE AUTOMATION</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <style>
 
 :root{
@@ -408,40 +409,6 @@ footer{
     }
 }
 
-/* ===== HEADER SOCIAL ICONS ===== */
-.header-right{
-    display:flex;
-    align-items:center;
-    gap:0px;
-}
-
-.social-icons{
-    display:flex;
-    gap:12px;
-    margin-left:20px;
-}
-
-.social-icons a{
-    width:34px;
-    height:34px;
-    background:#fff;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:0.3s ease;
-}
-
-.social-icons a img{
-    width:18px;
-    height:18px;
-}
-
-.social-icons a:hover{
-    transform:translateY(-2px);
-    background:#f2dcbb;
-}
-
 
  /* Services page split columns */
 .grid-container {
@@ -704,7 +671,9 @@ footer{
 
 <body>
 <header>
-    <h2>LNI Bake Automation</h2>
+   <h2 onclick="showPage('home-page')" style="cursor:pointer;">
+    LNI Bake Automation
+</h2>
 
 <div class="hamburger" id="hamburger">
   <div></div>
@@ -1152,22 +1121,8 @@ Mobile: ✆ +1 (234) 567-890
 </div>
 
 <footer>
-@2026 LNI FOOD AUTOMATION. 
+ © 2026 LNI Bake Automation. All Rights Reserved.
   <!-- SOCIAL ICONS -->
-        <div class="social-icons">
-            <a href="https://www.instagram.com/" target="_blank" title="Instagram">
-                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-            </a>
-
-            <a href="https://www.facebook.com/" target="_blank" title="Facebook">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
-            </a>
-
-            <a href="https://www.linkedin.com/" target="_blank" title="LinkedIn">
-                <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn">
-            </a>
-        </div>
-
 </footer>
 
 <a class="whatsapp-btn"
@@ -1176,7 +1131,7 @@ Mobile: ✆ +1 (234) 567-890
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
 </a>
 
-	
+
 <script>
 
 /* ===== HOME PAGE MOVE SLIDER SCRIPT ===== */
@@ -1467,6 +1422,7 @@ function searchProducts() {
 
     notFound.style.display = visibleCount === 0 ? "block" : "none";
 }
+
 
 </script>
 
