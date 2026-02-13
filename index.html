@@ -574,6 +574,28 @@ footer{
   }
 }
 
+/* ===== SMALLER GRID FOR EQUIPMENT TO PRODUCE ===== */
+
+.equipment-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 small columns */
+    gap: 8px; /* smaller spacing */
+}
+
+.equipment-grid .card {
+    padding: 6px;
+}
+
+.equipment-grid .card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.equipment-grid .card h4 {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
 
 </style>
 </head>
@@ -758,7 +780,7 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 <!-- ================= HOME Equipment to Produce ================= -->
 <section class="section">
         <h3>Equipment to Produce</h3> <br>
-<div class="grid">
+<div class="grid equipment-grid">
 
 	<div class="card">
 	<img src="https://creativeculinaire.com/wp-content/uploads/2021/06/CDP-1-scaled.jpg" alt="Cleaning" style="width: 100px;">
