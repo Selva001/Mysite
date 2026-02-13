@@ -226,6 +226,35 @@ footer{
     opacity:1;
 }
 
+/* Product slider image */
+.image-slider img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: opacity 0.6s ease;
+}
+
+/* Small dots under product */
+.small-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.small-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.small-dots span.active {
+    background: #5f230a;
+}
+
 
 /* ===== CONTACT SECTION ===== */
 
@@ -660,13 +689,12 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 <!-- Depositor -->
 	<div class="card">
  	<a onclick="showPage('Products-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
-	<div class="image-slider" data-images="
-		https://5.imimg.com/data5/SELLER/Default/2024/9/451660239/HD/CS/OA/42533001/cookie-dropping-machine-500x500.jpg,
-		https://5.imimg.com/data5/SELLER/Default/2024/11/466459637/GH/BZ/KG/6056272/images-2024-11-19t113829-413-copy.jpg">
-	
-	<span class="arrow left"></span>	
-	<img src="https://5.imimg.com/data5/SELLER/Default/2024/9/451660239/HD/CS/OA/42533001/cookie-dropping-machine-500x500.jpg">
-	<span class="arrow right"></span> 
+	<div class="image-slider" data-images=" https://5.imimg.com/data5/SELLER/Default/2024/9/451660239/HD/CS/OA/42533001/cookie-dropping-machine-500x500.jpg,
+https://5.imimg.com/data5/SELLER/Default/2024/11/466459637/GH/BZ/KG/6056272/images-2024-11-19t113829-413-copy.jpg">	
+
+<img src="https://5.imimg.com/data5/SELLER/Default/2024/9/451660239/HD/CS/OA/42533001/cookie-dropping-machine-500x500.jpg">
+
+<div class="slider-dots small-dots"></div>
 
 	</div>    
 	<h4>Depositor</h4>
@@ -677,11 +705,13 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<div class="card">
  	<a onclick="showPage('Products-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
-		https://5.imimg.com/data5/SELLER/Default/2025/3/499607308/YK/ML/KE/13069892/rotary-oven-120-trays-1000x1000.jpg,
-		https://5.imimg.com/data5/SELLER/Default/2025/6/521199496/CL/VK/IY/102174084/commercial-bakery-oven-1000x1000.webp">	
-	<span class="arrow left"></span>
-	<img src="https://static.wixstatic.com/media/d14fdd_625377a97e934648a22196712be7ef7c~mv2.jpg/v1/fill/w_291,h_291,q_90,enc_avif,quality_auto/d14fdd_625377a97e934648a22196712be7ef7c~mv2.jpg" alt="Baking">
-	<span class="arrow right"></span>    
+https://5.imimg.com/data5/SELLER/Default/2025/3/499607308/YK/ML/KE/13069892/rotary-oven-120-trays-1000x1000.jpg,
+https://5.imimg.com/data5/SELLER/Default/2025/6/521199496/CL/VK/IY/102174084/commercial-bakery-oven-1000x1000.webp">	
+	
+<img src="https://static.wixstatic.com/media/d14fdd_625377a97e934648a22196712be7ef7c~mv2.jpg/v1/fill/w_291,h_291,q_90,enc_avif,quality_auto/d14fdd_625377a97e934648a22196712be7ef7c~mv2.jpg" alt="Baking">
+
+<div class="slider-dots small-dots"></div>
+   
 	</div>    
 	<h4>Ovens</h4>
     	</a>
@@ -691,12 +721,14 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 	<div class="card">
  	<a onclick="showPage('Products-page')" style="cursor:pointer;text-decoration:none;color:inherit;">
 	<div class="image-slider" data-images="
-		https://4.imimg.com/data4/JO/QD/MY-26185899/sinmag-sheeter-1000x1000.jpg,
-		https://5.imimg.com/data5/VL/PK/MY-2099982/dough-divider-1000x1000.jpg,
-		https://5.imimg.com/data5/SELLER/Default/2021/3/KJ/YD/EF/26185899/smd-4p-6-continuous-divider-250x250.jpg">
-	<span class="arrow left"></span>
-	<img src="https://4.imimg.com/data4/JO/QD/MY-26185899/sinmag-sheeter-1000x1000.jpg" alt="Dough">
-	<span class="arrow right"></span>    
+https://4.imimg.com/data4/JO/QD/MY-26185899/sinmag-sheeter-1000x1000.jpg,
+https://5.imimg.com/data5/VL/PK/MY-2099982/dough-divider-1000x1000.jpg,
+https://5.imimg.com/data5/SELLER/Default/2021/3/KJ/YD/EF/26185899/smd-4p-6-continuous-divider-250x250.jpg">
+
+<img src="https://4.imimg.com/data4/JO/QD/MY-26185899/sinmag-sheeter-1000x1000.jpg" alt="Dough">
+
+<div class="slider-dots small-dots"></div>
+
 	</div>    
 	<h4>Dough Sheeters</h4>
     	</a>
@@ -709,9 +741,10 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 		https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhl1-Oz1_NgtMQxa1fLiceR6FxXI-uaeDb0A&s,
 		https://s.alicdn.com/@sc04/kf/Heeb6a604600046929bab4cb1f2db24f1p/Cooking-Preservation-Bakery-Vacuum-Cooler-Pre-Chiller-Foods-Machine-Food-Cooling-for-Noodles.jpg,
 		https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSed7Z3BotC77_3_hOwpzCPSHVX4nB-x5-jMA&s">
-	<span class="arrow left"></span>
 	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhl1-Oz1_NgtMQxa1fLiceR6FxXI-uaeDb0A&s" alt="CC">
-	<span class="arrow right"></span>    
+
+<div class="slider-dots small-dots"></div>
+
 	</div>    
 	<h4>Cooling, Chilling</h4>
     	</a>
@@ -724,9 +757,10 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 		https://5.imimg.com/data5/SELLER/Default/2022/11/XR/ON/CP/3709012/bread-proofer-machine-1000x1000.png,
 		http://5.imimg.com/data5/SELLER/Default/2021/3/YJ/CY/ZV/51711716/32-tray-proofer-machine-500x500.jpg,
 		http://5.imimg.com/data5/ANDROID/Default/2024/5/417664573/JK/GB/PZ/2705010/product-jpeg-500x500.jpg">
-	<span class="arrow left"></span>
 	<img src="https://5.imimg.com/data5/SELLER/Default/2022/11/XR/ON/CP/3709012/bread-proofer-machine-1000x1000.png" alt="Proofing">
-	<span class="arrow right"></span>    
+
+<div class="slider-dots small-dots"></div>
+
 	</div>    
 	<h4>Proofboxes</h4>
     	</a>
@@ -739,9 +773,11 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 		https://5.imimg.com/data5/KN/YY/MY-2250436/sancassiano-3a-just-mix-it-1000x1000.jpg,
 		https://3.imimg.com/data3/KW/HB/MY-2088493/mixer-with-beater-arms-serie-500x500.jpg,
 		https://5.imimg.com/data5/SELLER/Default/2025/12/564705206/LB/YY/NE/2997577/sinmag-planetary-mixer-sm-80l-1000x1000.jpg">
-	<span class="arrow left"></span>
+
 	<img src="https://5.imimg.com/data5/KN/YY/MY-2250436/sancassiano-3a-just-mix-it-1000x1000.jpg" alt="Mixing">
-	<span class="arrow right"></span>    
+
+<div class="slider-dots small-dots"></div>
+
 	</div>    
 	<h4>Mixers</h4>
     	</a>
@@ -753,9 +789,10 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 		http://5.imimg.com/data5/SELLER/Default/2024/6/425609311/MY/PV/IA/42487772/breading-slicer-machine-1000x1000.jpg,
 		http://5.imimg.com/data5/SELLER/Default/2023/3/291921264/VN/EO/OM/2715705/reva-heavy-duty-bread-slicer-machine-1000x1000.png,
 		https://www.provisur.com/webfoo/wp-content/uploads/2020-01/provisur-formax-sx330-slicer-568x500.png">
-	<span class="arrow left"></span>
 	<img src="http://5.imimg.com/data5/SELLER/Default/2024/6/425609311/MY/PV/IA/42487772/breading-slicer-machine-1000x1000.jpg" alt="Slicing / Packing">
-	<span class="arrow right"></span>    
+
+<div class="slider-dots small-dots"></div>
+
 	</div>    
 	<h4>Slicer / Packing</h4>
     	</a>
@@ -768,9 +805,11 @@ LNI Automation is a full-service consultancy and equipment provider dedicated to
 		https://cpimg.tistatic.com/06595399/b/4/Crate-Washer-Basket-Tray-Washing-Machine.jpg,
 		https://5.imimg.com/data5/SELLER/Default/2024/4/409920065/BG/PG/IZ/3651265/plastic-bin-washing-machine-500x500.jpg,
 		https://www.superiorfoodmachinery.com/images/tray-washer-mpp-150-p944-4961_zoom.jpg">
-	<span class="arrow left"></span>
+
 	<img src="https://cpimg.tistatic.com/06595399/b/4/Crate-Washer-Basket-Tray-Washing-Machine.jpg" alt="Cleaning">
-	<span class="arrow right"></span>    
+
+<div class="slider-dots small-dots"></div>
+
 	</div>    
 	<h4>Cleaners</h4>
     	</a>
@@ -1118,30 +1157,41 @@ document.querySelectorAll(".image-slider").forEach(slider => {
     const images = slider.dataset.images.split(",");
     let index = 0;
 
-    function updateImage(newIndex){
+    /* Create dots */
+    const dotsContainer = slider.querySelector(".slider-dots");
+    dotsContainer.innerHTML = "";
+
+    images.forEach((_, i) => {
+        const dot = document.createElement("span");
+        if (i === 0) dot.classList.add("active");
+
+        dot.addEventListener("click", () => {
+            updateImage(i);
+        });
+
+        dotsContainer.appendChild(dot);
+    });
+
+    function updateImage(newIndex) {
         img.style.opacity = 0;
 
         setTimeout(() => {
             index = newIndex;
             img.src = images[index];
+
+            dotsContainer.querySelectorAll("span")
+                .forEach(dot => dot.classList.remove("active"));
+
+            dotsContainer.children[index].classList.add("active");
+
             img.style.opacity = 1;
-        }, 250);
+        }, 300);
     }
 
-    /* Arrows */
-    slider.querySelector(".left").addEventListener("click", e => {
-        e.stopPropagation();
-        updateImage((index - 1 + images.length) % images.length);
-    });
-
-    slider.querySelector(".right").addEventListener("click", e => {
-        e.stopPropagation();
-        updateImage((index + 1) % images.length);
-    });
-
-    /* Auto Slide */
+    /* Auto slide */
     setInterval(() => {
-        updateImage((index + 1) % images.length);
+        let next = (index + 1) % images.length;
+        updateImage(next);
     }, 3000);
 });
 
