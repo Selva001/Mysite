@@ -664,6 +664,30 @@ footer{
     color: #999;
 }
 
+/* ===== PRODUCTS GRID - NO STRETCH ===== */
+#Products-page .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 240px); /* fixed width */
+    justify-content: center; /* center grid */
+    gap: 20px;
+}
+
+#Products-page .card {
+    width: 240px;
+}
+@media (max-width: 768px) {
+
+  #Products-page .grid {
+      grid-template-columns: repeat(2, 160px);
+      justify-content: center;
+      gap: 12px;
+  }
+
+  #Products-page .card {
+      width: 160px;
+  }
+}
+
 
 </style>
 </head>
