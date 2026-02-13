@@ -493,32 +493,34 @@ footer{
 }
 
 
-/* ===== MOBILE FIX: EQUIPMENT TO PRODUCE ALIGNMENT ===== */
+/* ===== MOBILE: HOME PAGE SHOW 2 CARDS ===== */
 @media (max-width: 768px) {
 
-  /* Center cards nicely */
   #home-page .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
-  /* Fix inner images alignment */
   #home-page .card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
   }
 
   #home-page .card img {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
     margin: 6px auto;
-    display: block;
   }
 
   #home-page .card h4 {
     margin-top: 8px;
     text-align: center;
+    font-size: 14px;
   }
 }
-
 
 /* ===== PRODUCT SEARCH RIGHT SIDE ===== */
 .product-controls {
