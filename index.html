@@ -628,6 +628,89 @@ footer{
   }
 }
 
+/* ===== PRODUCTS HERO ===== */
+.products-hero {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.products-hero h1 {
+    font-size: 32px;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.products-hero p {
+    color: #555;
+}
+
+/* ===== TOOLBAR ===== */
+.products-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Category buttons */
+.category-filters button {
+    padding: 8px 16px;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.category-filters button.active,
+.category-filters button:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* Search */
+.search-box input {
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    min-width: 250px;
+}
+
+/* No result */
+.no-result {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #999;
+}
+
+/* ===== PRODUCTS PAGE SMALLER CARDS ===== */
+
+#Products-page .grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+#Products-page .card {
+    padding: 12px;
+    border-radius: 8px;
+}
+#Products-page .card img {
+    height: 160px;
+    object-fit: cover;
+}
+#Products-page .card h4 {
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+#Products-page .open-modal-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+}
 
 </style>
 </head>
@@ -925,19 +1008,38 @@ Mobile: ✆ +1 (234) 567-890
 
 <!-- ================= Start list of products PAGE ================= -->
 
+<!-- ================= PRODUCTS PAGE ================= -->
 <div id="Products-page" class="page">
 
-<section class="section">
+    <section class="section">
 
-<!-- ===== PRODUCT SEARCH ===== -->
-<div class="product-controls"><h4>Products:</h4>
-<input type="text" id="productSearch" placeholder="Search product name..." onkeyup="searchProducts()">   
-<p id="noProductFound" style="display:none; text-align:center; margin-top:20px; color:Green; font-weight:bold;">
-<br>
-Product not found!
-</p>
+<div class="products-hero">
+    <h3>Our Industrial Bakery Equipments</h3>
+    <p>LNI High-performance systems designed for efficiency, consistency and scalability.</p>
+</div>
+
+<div class="products-toolbar">
+
+    <div class="category-filters">
+        <button onclick="filterCategory('all')" class="active">All</button>
+        <button onclick="filterCategory('mixer')">Mixers</button>
+        <button onclick="filterCategory('oven')">Ovens</button>
+        <button onclick="filterCategory('depositor')">Depositors</button>
+ 	<button onclick="filterCategory('Slicer')">Slicers</button>
+    </div>
+
+    <div class="search-box">
+        <input type="text"
+               id="productSearch"
+               placeholder="Search equipment..."
+               onkeyup="searchProducts()">
+    </div>
 
 </div>
+
+<p id="noProductFound" class="no-result">
+   No matching equipment found.
+</p>
 
 
 <div class="grid">
@@ -952,35 +1054,42 @@ Product not found!
 </div>
 
 <!-- Shuffle-Mix 1 -->
-<div class="card" data-name="SHUFFLEMIXER">
+<div class="card" data-name="SHUFFLEMIXER" data-category="mixer">
+
     <img src="https://static.wixstatic.com/media/d14fdd_8047f17eae664c0e89b943d4e4229897~mv2.jpg/v1/crop/x_89,y_0,w_625,h_529/fill/w_750,h_635,al_c,lg_1,q_85,enc_avif,quality_auto/Shufflemixer250.jpg" alt="SHUFFLEMIXER">
     <h4>SHUFFLEMIXER</h4>
     <button class="open-modal-btn" onclick="openModal('dep1')">Know more</button>
 </div>
 
 <!-- STARMIX 2 -->
-<div class="card" data-name="STARMIX">
+
+<div class="card" data-name="STARMIX" data-category="mixer">
+
     <img src="https://static.wixstatic.com/media/d14fdd_52a4432e0a5c40daa2c97ff0ea794880~mv2.jpg/v1/fill/w_510,h_714,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/PL160N.jpg" alt="STARMIX">
     <h4>STARMIX</h4>
     <button class="open-modal-btn" onclick="openModal('dep2')">Know more</button>
 </div>
 
 <!-- BELTOP DEPOSITOR -->
-<div class="card" data-name="BELTOP DEPOSITOR">
+<div class="card" data-name="BELTOP DEPOSITOR" data-category="depositor">
+
     <img src="https://static.wixstatic.com/media/d14fdd_eae2f6ba9d0f42e4914a45555a47bca1~mv2_d_1200_1200_s_2.jpg/v1/fill/w_584,h_580,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Beltop-275-depositor.jpg" alt="Depositor">
     <h4>BELTOP DEPOSITOR</h4>
     <button class="open-modal-btn" onclick="openModal('dep3')">Know more</button>
 </div>
 
 <!-- Deck Oven -->
-<div class="card" data-name="Deck Oven">
+<div class="card" data-name="Deck Oven" data-category="oven">
+
     <img src="https://static.wixstatic.com/media/0c2b1f_f7510a434a334abdbb23828c576d9130~mv2.png/v1/crop/x_0,y_165,w_2000,h_1670/fill/w_412,h_344,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/tokura%20deck.png" alt="Deck Oven">
     <h4>Deck Oven</h4>
     <button class="open-modal-btn" onclick="openModal('dep3')">Know more</button>
 </div>
 
 <!-- Cake Slicing -->
-<div class="card" data-name="Cake Slicing">
+
+<div class="card" data-name="Cake Slicing" data-category="Slicer">
+
     <img src="https://static.wixstatic.com/media/0c2b1f_92ff3d1e90a64fb18a43eac76c9656c9~mv2.png/v1/crop/x_0,y_165,w_2000,h_1670/fill/w_412,h_344,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/hydroprocess%20chef%20cut.png" alt="Cake Slicing">
     <h4>Cake Slicing</h4>
     <button class="open-modal-btn" onclick="openModal('dep3')">Know more</button>
@@ -1315,32 +1424,62 @@ document.addEventListener("click", function (e) {
 });
 
 
+/* Category Filter Script */
+
+function filterCategory(category) {
+
+    const cards = document.querySelectorAll("#Products-page .card");
+    const buttons = document.querySelectorAll(".category-filters button");
+
+    buttons.forEach(btn => btn.classList.remove("active"));
+    event.target.classList.add("active");
+
+    cards.forEach(card => {
+        if (category === "all" || card.dataset.category === category) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+
 /* Search Option */
 
 function searchProducts() {
-  const value = document
-    .getElementById("productSearch")
-    .value
-    .toLowerCase();
 
-  const cards = document.querySelectorAll("#Products-page .card");
-  const notFound = document.getElementById("noProductFound");
+    const input = document.getElementById("productSearch");
+    const value = input.value.trim().toLowerCase();
 
-  let visibleCount = 0;
+    const cards = document.querySelectorAll("#Products-page .card");
+    const notFound = document.getElementById("noProductFound");
 
-  cards.forEach(card => {
-    const name = card.dataset.name.toLowerCase();
+    let visibleCount = 0;
 
-    if (name.includes(value)) {
-      card.style.display = "block";
-      visibleCount++;
-    } else {
-      card.style.display = "none";
+    /* If search box is empty → show all products */
+    if (value === "") {
+        cards.forEach(card => {
+            card.style.display = "block";
+        });
+
+        notFound.style.display = "none";
+        return;
     }
-  });
 
-  // Show / hide "not found" message
-  notFound.style.display = visibleCount === 0 ? "block" : "none";
+    /* Otherwise filter */
+    cards.forEach(card => {
+
+        const name = card.dataset.name.toLowerCase();
+
+        if (name.includes(value)) {
+            card.style.display = "block";
+            visibleCount++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    notFound.style.display = visibleCount === 0 ? "block" : "none";
 }
 
 </script>
