@@ -828,7 +828,7 @@ https://5.imimg.com/data5/SELLER/Default/2021/3/KJ/YD/EF/26185899/smd-4p-6-conti
 		http://5.imimg.com/data5/SELLER/Default/2024/6/425609311/MY/PV/IA/42487772/breading-slicer-machine-1000x1000.jpg,
 		http://5.imimg.com/data5/SELLER/Default/2023/3/291921264/VN/EO/OM/2715705/reva-heavy-duty-bread-slicer-machine-1000x1000.png,
 		https://www.provisur.com/webfoo/wp-content/uploads/2020-01/provisur-formax-sx330-slicer-568x500.png">
-	<img src="http://5.imimg.com/data5/SELLER/Default/2024/6/425609311/MY/PV/IA/42487772/breading-slicer-machine-1000x1000.jpg" alt="Slicing / Packing">
+	<img src="https://5.imimg.com/data5/SELLER/Default/2024/6/425609311/MY/PV/IA/42487772/breading-slicer-machine-1000x1000.jpg" alt="Slicing / Packing">
 
 <div class="slider-dots small-dots"></div>
 
@@ -1426,32 +1426,27 @@ function searchProducts() {
 
     /* Contact form */
 
+
 const scriptURL = "https://script.google.com/macros/s/AKfycbzFxi1fMm4AP1ymTxYtu0NGxmKKXje0VQEt2BLydjPjybukSUiBYoUa60DUQn8vlUB1mQ/exec";
 const form = document.getElementById("contactForm");
 
-form.addEventListener("submit", e => {
+form.addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const formData = {
-    name: form.querySelector("[name='name']").value,
-    email: form.querySelector("[name='email']").value,
-    phone: form.querySelector("[name='phone']").value,
-    message: form.querySelector("[name='message']").value
-  };
+  const formData = new FormData(form);
 
   fetch(scriptURL, {
     method: "POST",
-    body: JSON.stringify(formData)
+    body: formData
   })
   .then(response => {
     alert("Message sent successfully!");
     form.reset();
   })
   .catch(error => {
-    alert("Error submitting form");
+    alert("Error submitting form!");
   });
 });
-
 
 </script>
 
